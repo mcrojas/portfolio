@@ -111,7 +111,7 @@ const Navigation = () => {
             <SheetContent side="right" className="w-64 bg-background/95 backdrop-blur-lg">
               <div className="flex flex-col space-y-4 mt-8">
                 <div className="text-xl font-bold portfolio-gradient bg-clip-text text-transparent mb-4">
-                  Navegación
+                  Sajor.dev
                 </div>
                 {navItems.map((item) => (
                   <Button
@@ -132,7 +132,7 @@ const Navigation = () => {
                     className="w-full portfolio-gradient hover:shadow-glow transition-all duration-300"
                     onClick={() => scrollToSection("contact")}
                   >
-                    Contratar
+                    Contact me
                   </Button>
                 </div>
               </div>
