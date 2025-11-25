@@ -12,7 +12,7 @@ import arrotekImg from "@/assets/portfolio/arrotek.jpeg";
 import diocesanImg from "@/assets/portfolio/diocesan.png";
 import donalsImg from "@/assets/portfolio/donals.png";
 import davisImg from "@/assets/portfolio/davis-events.png";
-import huertaAizuImg from "@/assets/portfolio/huerta-aizu-web.png"
+import huertaAizuImg from "@/assets/portfolio/huerta-aizu-web.png";
 import { useState } from "react";
 
 interface Project {
