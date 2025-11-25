@@ -12,6 +12,7 @@ import arrotekImg from "@/assets/portfolio/arrotek.jpeg";
 import diocesanImg from "@/assets/portfolio/diocesan.png";
 import donalsImg from "@/assets/portfolio/donals.png";
 import davisImg from "@/assets/portfolio/davis-events.png";
+import huertaAizuImg from "@/assets/portfolio/huerta-aizu-web.png"
 import { useState } from "react";
 
 interface Project {
@@ -33,6 +34,17 @@ const Portfolio = () => {
   const projects: Project[] = [
     {
       id: 1,
+      title: "Huerta Aizu",
+      description: "Huerta Aizu, an Argentine company dedicated to providing premium, ethically sourced produce.",
+      fullDescription: "Website for Huerta Aizu, an Argentine company dedicated to providing premium, ethically sourced produce. Explore our curated selection of fresh fruits and vegetables, grown with care in the fields of Mendoza, and discover how our commitment to mindful freshness can inspire your cooking.",
+      image: huertaAizuImg,
+      technologies: ["WordPress", "Elementor", "RESTful API"],
+      liveUrl: "https://huertaaizu.com/",
+      githubUrl: "#",
+      category: "WordPress"
+    },
+    {
+      id: 2,
       title: "UX Design Institute",
       description: "Educational platform built with Laravel and TailwindCSS.",
       fullDescription: "Educational platform built with Laravel and TailwindCSS. Developed responsive interfaces and optimized user experience.",
@@ -43,7 +55,7 @@ const Portfolio = () => {
       category: "Laravel"
     },
     {
-      id: 2,
+      id: 3,
       title: "Recruit Ireland",
       description: "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs.",
       fullDescription: "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs. Built with Laravel and integrated with various third-party services to enhance functionality and user engagement.",
@@ -54,7 +66,7 @@ const Portfolio = () => {
       category: "Laravel"
     },
     {
-      id: 3,
+      id: 4,
       title: "Recruit Ireland Advice Centre",
       description: "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs.",
       fullDescription: "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs. Built with WordPress and integrated with various third-party services to enhance functionality and user engagement.",
@@ -65,7 +77,7 @@ const Portfolio = () => {
       category: "WordPress"
     },
     {
-      id: 4,
+      id: 5,
       title: "Venturewave Capital",
       description: "Corporate website using WordPress (Elementor) and Figma.",
       fullDescription: "Corporate website using WordPress (Elementor) and Figma. Led the integration of custom designs.",
@@ -76,7 +88,7 @@ const Portfolio = () => {
       category: "WordPress"
     },
     {
-      id: 5,
+      id: 6,
       title: "Digital Learning Institute",
       description: "Online learning application with Laravel (Blade), TailwindCSS, and Livewire.",
       fullDescription: "Online learning application with Laravel (Blade), TailwindCSS, and Livewire. Built interactive modules and improved user retention.",
@@ -87,7 +99,7 @@ const Portfolio = () => {
       category: "Laravel"
     },
     {
-      id: 6,
+      id: 7,
       title: "Arrotek Medical Device",
       description: "Arrotek specializes in medical device design, prototyping, and concept refinement.",
       fullDescription: "Arrotek specializes in medical device design, prototyping, and concept refinement. Corporate website using WordPress (Elementor) and Figma. Led the integration of custom designs.",
@@ -98,7 +110,7 @@ const Portfolio = () => {
       category: "WordPress"
     },
     {
-      id: 7,
+      id: 8,
       title: "Diocesan | Evangelus",
       description: "Evangelus is a comprehensive online message platform in ReactJS.",
       fullDescription: "Evangelus is a comprehensive online message platform in ReactJS. Led the integration of custom designs.",
@@ -109,7 +121,7 @@ const Portfolio = () => {
       category: "ReactJS"
     },
     {
-      id: 8,
+      id: 9,
       title: "Donal's Kitchen",
       description: "Delicious, doable recipes and meal plans Cook smarter with Donal's Kitchen.",
       fullDescription: "Implemented responsive and visually appealing user interfaces using TailwindCSS and modern web technologies (WordPress, Stripe)",
@@ -120,7 +132,7 @@ const Portfolio = () => {
       category: "WordPress"
     },
     {
-      id: 9,
+      id: 10,
       title: "Davis Events",
       description: "Transform the events into extraordinary experiences with Davis Events Agency Dublin.",
       fullDescription: "Transform your events into extraordinary experiences with Davis Events Agency Dublin. Developed responsive interfaces and optimized user experience.",
@@ -202,7 +214,7 @@ const Portfolio = () => {
                             <img 
                               src={project.image} 
                               alt={project.title}
-                              className="w-full h-64 object-cover rounded-lg"
+                              className="w-full h-96 object-cover rounded-lg"
                             />
                             <p className="text-muted-foreground leading-relaxed">
                               {project.fullDescription}
