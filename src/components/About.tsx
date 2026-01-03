@@ -45,25 +45,20 @@ const About = () => {
           <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
             {/* Text Content */}
             <div className="space-y-6 animate-fade-in-up">
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm Mary, <b>Front-end Developer</b> with 10+ years of experience building high-performance, scalable, 
-                and visually stunning web applications. Expert in modern JavaScript frameworks and libraries 
-                (ReactJS, NextJS), advanced CSS (TailwindCSS, Bootstrap, BEM, Material UI, Grid, Flexbox), 
-                and seamless integration with RESTful APIs and robust backends (Laravel, WordPress). 
+              <p className="text-md text-muted-foreground leading-relaxed">
+                I'm Mary, with over 10 years of experience, I specialize in building high-performance web applications where logic meets aesthetics. I bridge the gap between complex design systems and scalable frontend architecture, ensuring that every pixel serves a purpose and every component is built to last.
               </p>
-              <p className="text-lg text-muted-foreground leading-relaxed">
-                I'm also developing expertise with headless CMS solutions, currently expanding my skills with Contentful + 
-                ReactJS implementations. Adept at translating complex requirements into pixel-perfect, responsive interfaces 
-                that deliver exceptional user experiences.
+              <p className="text-md text-muted-foreground leading-relaxed">
+                My focus is on React and Next.js, creating seamless user experiences that are as fast as they are intuitive. I don’t just write code; I take ownership of the interface, advocate for the user, and collaborate across teams to ship products that drive real business value.
               </p>
             </div>
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6 animate-slide-in-right">
               <div className="col-span-2 relative overflow-hidden w-32 h-32 mx-auto mt-6 rounded-full">
-                <img 
-                  src={developerPhoto} 
-                  alt="Sajor - Frontend Developer" 
+                <img
+                  src={developerPhoto}
+                  alt="Sajor - Frontend Developer"
                   className="w-full h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
@@ -113,7 +108,7 @@ const About = () => {
           <div className="flex justify-center items-center mt-12 animate-fade-in-up">
             <Button size="lg" className="portfolio-gradient hover:shadow-glow transition-all duration-300">
               <a
-                href="https://drive.google.com/file/d/1_Mkmia86EAF93QcZQmeZ6EuP25sELsOb/view"
+                href="https://drive.google.com/file/d/1EdVRZw_mKpkN2NLYwDWFDDvbXVt4T1QB/view"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center"

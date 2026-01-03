@@ -12,9 +12,9 @@ const Hero = () => {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
       <div className="absolute inset-0">
-        <img 
-          src={heroImage} 
-          alt="Developer workspace" 
+        <img
+          src={heroImage}
+          alt="Developer workspace"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-black opacity-85"></div>
@@ -25,28 +25,29 @@ const Hero = () => {
         <div className="animate-fade-in-up">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
             <Code className="w-4 h-4 mr-2" />
-            <span className="text-sm">Frontend Developer</span>
+            <span className="text-sm">10+ Years of Experience</span>
           </div>
-          
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
-            Hello, I'm 
-            <span className="text-primary"> Mary</span>
+
+          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+            Senior Frontend Engineer
+            <span className="text-primary"> bridging the gap between</span>
+            <span> Design & Code</span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-            I create modern and functional web experiences that connect brands with users through clean code and intuitive design.
+            Crafting performant, accessible, and beautiful web experiences. Specializing in React, TypeScript, and design systems that scale.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
-            <Button 
-              size="lg" 
+            <Button
+              size="lg"
               className="portfolio-gradient hover:shadow-glow transition-all duration-300 text-lg px-8 py-6"
               onClick={() => scrollToSection('portfolio')}
             >
               Portfolio
             </Button>
-            <Button 
-              variant="outline" 
+            <Button
+              variant="outline"
               size="lg"
               className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 text-lg px-8 py-6"
               onClick={() => scrollToSection('contact')}

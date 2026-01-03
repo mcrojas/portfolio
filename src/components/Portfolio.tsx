@@ -13,6 +13,8 @@ import diocesanImg from "@/assets/portfolio/diocesan.png";
 import donalsImg from "@/assets/portfolio/donals.png";
 import davisImg from "@/assets/portfolio/davis-events.png";
 import huertaAizuImg from "@/assets/portfolio/huerta-aizu-web.png";
+import businessImg from "@/assets/portfolio/business.png";
+import tamImg from "@/assets/portfolio/tam.png";
 import { useState } from "react";
 
 interface Project {
@@ -78,6 +80,17 @@ const Portfolio = () => {
     },
     {
       id: 5,
+      title: "Davis Events",
+      description: "Transform the events into extraordinary experiences with Davis Events Agency Dublin.",
+      fullDescription: "Transform your events into extraordinary experiences with Davis Events Agency Dublin. Developed responsive interfaces and optimized user experience.",
+      image: davisImg,
+      technologies: ["WordPress", "Elementor", "TailwindCSS"],
+      liveUrl: "https://davisevents.ie/",
+      githubUrl: "#",
+      category: "WordPress"
+    },
+    {
+      id: 6,
       title: "Venturewave Capital",
       description: "Corporate website using WordPress (Elementor) and Figma.",
       fullDescription: "Corporate website using WordPress (Elementor) and Figma. Led the integration of custom designs.",
@@ -88,18 +101,29 @@ const Portfolio = () => {
       category: "WordPress"
     },
     {
-      id: 6,
-      title: "Digital Learning Institute",
-      description: "Online learning application with Laravel (Blade), TailwindCSS, and Livewire.",
-      fullDescription: "Online learning application with Laravel (Blade), TailwindCSS, and Livewire. Built interactive modules and improved user retention.",
-      image: digitalImg,
-      technologies: ["Laravel", "TailwindCSS", "Livewire"],
-      liveUrl: "https://www.digitallearninginstitute.com/",
+      id: 7,
+      title: "BusinessPost",
+      description: "Exclusive insights into business, politics, tech, and culture. Delivering journalism for the informed reader.",
+      fullDescription: "Exclusive insights into business, politics, tech, and culture. Delivering journalism for the informed reader. Built with Laravel.",
+      image: businessImg,
+      technologies: ["Laravel", "TailwindCSS"],
+      liveUrl: "https://businesspost.ie/",
       githubUrl: "#",
       category: "Laravel"
     },
     {
-      id: 7,
+      id: 8,
+      title: "Troupe Al Meira",
+      description: "Troupe Al Meira is a studio dedicated to teaching oriental dance and its fusions in Venezuela with ReactJS, Vite, and TailwindCSS.",
+      fullDescription: "Troupe Al Meira is a studio dedicated to teaching oriental dance and its fusions in Venezuela with ReactJS, Vite, and TailwindCSS.",
+      image: tamImg,
+      technologies: ["ReactJS", "Vite", "TailwindCSS"],
+      liveUrl: "https://troupealmeira.com/",
+      githubUrl: "#",
+      category: "ReactJS"
+    },
+    {
+      id: 9,
       title: "Arrotek Medical Device",
       description: "Arrotek specializes in medical device design, prototyping, and concept refinement.",
       fullDescription: "Arrotek specializes in medical device design, prototyping, and concept refinement. Corporate website using WordPress (Elementor) and Figma. Led the integration of custom designs.",
@@ -110,7 +134,7 @@ const Portfolio = () => {
       category: "WordPress"
     },
     {
-      id: 8,
+      id: 10,
       title: "Diocesan | Evangelus",
       description: "Evangelus is a comprehensive online message platform in ReactJS.",
       fullDescription: "Evangelus is a comprehensive online message platform in ReactJS. Led the integration of custom designs.",
@@ -121,7 +145,7 @@ const Portfolio = () => {
       category: "ReactJS"
     },
     {
-      id: 9,
+      id: 11,
       title: "Donal's Kitchen",
       description: "Delicious, doable recipes and meal plans Cook smarter with Donal's Kitchen.",
       fullDescription: "Implemented responsive and visually appealing user interfaces using TailwindCSS and modern web technologies (WordPress, Stripe)",
@@ -132,22 +156,22 @@ const Portfolio = () => {
       category: "WordPress"
     },
     {
-      id: 10,
-      title: "Davis Events",
-      description: "Transform the events into extraordinary experiences with Davis Events Agency Dublin.",
-      fullDescription: "Transform your events into extraordinary experiences with Davis Events Agency Dublin. Developed responsive interfaces and optimized user experience.",
-      image: davisImg,
-      technologies: ["WordPress", "Elementor", "TailwindCSS"],
-      liveUrl: "https://davisevents.ie/",
+      id: 12,
+      title: "Digital Learning Institute",
+      description: "Online learning application with Laravel (Blade), TailwindCSS, and Livewire.",
+      fullDescription: "Online learning application with Laravel (Blade), TailwindCSS, and Livewire. Built interactive modules and improved user retention.",
+      image: digitalImg,
+      technologies: ["Laravel", "TailwindCSS", "Livewire"],
+      liveUrl: "https://www.digitallearninginstitute.com/",
       githubUrl: "#",
-      category: "WordPress"
+      category: "Laravel"
     }
   ];
 
   const categories = ["All", "Laravel", "WordPress", "ReactJS"];
 
-  const filteredProjects = selectedCategory === "All" 
-    ? projects 
+  const filteredProjects = selectedCategory === "All"
+    ? projects
     : projects.filter(project => project.category === selectedCategory);
 
   return (
@@ -172,8 +196,8 @@ const Portfolio = () => {
                   key={category}
                   variant={selectedCategory === category ? "default" : "ghost"}
                   onClick={() => setSelectedCategory(category)}
-                  className={selectedCategory === category ? 
-                    "portfolio-gradient hover:shadow-glow transition-all duration-300" : 
+                  className={selectedCategory === category ?
+                    "portfolio-gradient hover:shadow-glow transition-all duration-300" :
                     "hover:bg-secondary transition-colors duration-300"
                   }
                 >
@@ -186,16 +210,16 @@ const Portfolio = () => {
           {/* Projects Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
             {filteredProjects.map((project, index) => (
-              <Card 
-                key={project.id} 
+              <Card
+                key={project.id}
                 className="group overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-500 hover:scale-105 animate-fade-in-up"
                 style={{ animationDelay: `${index * 200}ms` }}
               >
                 <div className="relative overflow-hidden">
-                  <img 
-                    src={project.image} 
+                  <img
+                    src={project.image}
                     alt={project.title}
-                    className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                    className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110"
                   />
                   <div className="absolute inset-0 portfolio-gradient-soft opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="flex gap-4">
@@ -211,10 +235,10 @@ const Portfolio = () => {
                             <DialogTitle className="text-2xl font-bold">{project.title}</DialogTitle>
                           </DialogHeader>
                           <div className="space-y-6">
-                            <img 
-                              src={project.image} 
+                            <img
+                              src={project.image}
                               alt={project.title}
-                              className="w-full h-96 object-cover rounded-lg"
+                              className="w-full h-[36rem] object-cover rounded-lg"
                             />
                             <p className="text-muted-foreground leading-relaxed">
                               {project.fullDescription}
@@ -235,12 +259,12 @@ const Portfolio = () => {
                                 </a>
                               </Button>
                               {project.githubUrl !== "#" && (
-                              <Button variant="outline" asChild>
-                                <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                  <Github className="w-4 h-4 mr-2" />
-                                  Code
-                                </a>
-                              </Button>
+                                <Button variant="outline" asChild>
+                                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                    <Github className="w-4 h-4 mr-2" />
+                                    Code
+                                  </a>
+                                </Button>
                               )}
                             </div>
                           </div>
@@ -274,12 +298,12 @@ const Portfolio = () => {
                       </a>
                     </Button>
                     {project.githubUrl !== "#" && (
-                    <Button size="sm" variant="outline" asChild className="flex-1">
-                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                        <Github className="w-4 h-4 mr-2" />
-                        Code
-                      </a>
-                    </Button>
+                      <Button size="sm" variant="outline" asChild className="flex-1">
+                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                          <Github className="w-4 h-4 mr-2" />
+                          Code
+                        </a>
+                      </Button>
                     )}
                   </div>
                 </CardContent>
