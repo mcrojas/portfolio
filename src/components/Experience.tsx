@@ -1,101 +1,51 @@
 import { Calendar, MapPin, ExternalLink } from 'lucide-react';
 import { Card, CardContent } from '@/components/ui/card';
+import { useTranslation } from 'react-i18next';
 
 const Experience = () => {
-  const experiences = [
-    {
-      title: "Frontend Software Engineer",
-      company: "Square1",
-      period: "August 2019 - Present",
-      location: "Dublin, Ireland / Spain",
-      type: "Remote",
-      achievements: [
-        "Architected and optimized 10+ enterprise-level platforms using React and Next.js, achieving 12% faster page loads and an 8% increase in user retention.",
-        "Engineered custom WordPress themes and complex Laravel integrations, reducing JavaScript overhead while maintaining rich interactivity across devices.",
-        "Standardized UI development by implementing TailwindCSS, which reduced cross-browser compatibility issues by 18%."
-      ],
-      technologies: ["ReactJS", "TypeScript", "Next.js", "Laravel", "WordPress", "Tailwind CSS"]
-    },
-    {
-      title: "Intermediate Layout Programmer",
-      company: "Teravision Technologies",
-      period: "August 2014 - July 2019",
-      location: "Caracas, Venezuela",
-      type: "Full-time",
-      achievements: [
-        "Delivered 15+ responsive sites with consistent 80+ PageSpeed score.",
-        "Mentored junior developers on component architecture and performance.",
-        "Engineered iOS UI components using Swift."
-      ],
-      technologies: ["ReactJS", "JavaScript", "CSS3", "WordPress", "XCode", "Swift"]
-    },
-    {
-      title: "Web Developer",
-      company: "Oruga Studio",
-      period: "July 2010 - July 2014",
-      location: "Caracas, Venezuela",
-      type: "Full-time",
-      achievements: [
-        "Increased organic traffic by 20% and mobile engagement by 35% for 10+ dynamic web projects.",
-        "Streamlined cross-functional workflows between design and backend teams to optimize code maintainability."
-      ],
-      technologies: ["PHP", "HTML5", "CSS3", "SASS", "JavaScript", "Bootstrap", "WordPress", "Joomla"]
-    },
-    {
-      title: "Web Assembler",
-      company: "E4GS Interactive LLC",
-      period: "January 2009 - July 2010",
-      location: "Caracas, Venezuela",
-      type: "Full-time",
-      achievements: [
-        "Completed an internship as a graduation requirement for my Systems Analysis and Design degree, gaining practical expertise in web development and platform administration.",
-        "My role focused on the full lifecycle of websites built on the Joomla CMS, from initial development to ongoing administration.",
-        "I was responsible for ensuring high standards through quality control, security implementation, and technical support. Additionally, I managed and maintained Google Apps services."
-      ],
-      technologies: ["PHP", "HTML", "CSS", "JavaScript", "Bootstrap", "Joomla"]
-    }
+  const { t } = useTranslation();
+
+  const experiences = t("experience.items", { returnObjects: true }) as any[];
+
+  // This one still needs the technologies list which is not in JSON (to keep it clean)
+  // I'll add them back based on index or just add them to JSON.
+  // Actually, it's better to stay in sync. I'll add them to JSON in a follow up if needed,
+  // but for now I'll just map them manually if they are small.
+  // Wait, I already have them in the component. I'll keep them here and just translate the text part.
+
+  const experienceTechs = [
+    ["ReactJS", "TypeScript", "Next.js", "Laravel", "WordPress", "Tailwind CSS"],
+    ["ReactJS", "JavaScript", "CSS3", "WordPress", "XCode", "Swift"],
+    ["PHP", "HTML5", "CSS3", "SASS", "JavaScript", "Bootstrap", "WordPress", "Joomla"],
+    ["PHP", "HTML", "CSS", "JavaScript", "Bootstrap", "Joomla"]
   ];
 
-  const education = [
-    {
-      title: "Associate's Degree in Systems Analysis and Design",
-      institution: "UNEFA",
-      period: "2007-2010",
-      type: "Caracas, Venezuela",
-      description: "Systems Analysis and Design"
-    }
-  ];
+  const education = t("experience.education", { returnObjects: true }) as any[];
 
   const certifications = [
     {
-      title: "CSS Architectures Course",
+      title: t("experience.certifications.0.title"),
       institution: "Platzi",
       period: "January 2024",
       url: "https://platzi.com/p/mcrojasp/curso/7991-arquitecturas-css/diploma/detalle/"
     },
     {
-      title: "Artificial Intelligence for Marketing and Content Course",
+      title: t("experience.certifications.1.title"),
       institution: "Platzi",
       period: "June 2023",
       url: "https://platzi.com/p/mcrojasp/curso/7962-ia-marketing-contenido/diploma/detalle/"
     },
     {
-      title: "Design System",
+      title: t("experience.certifications.2.title"),
       institution: "Platzi",
       period: "February 2023",
       url: "https://platzi.com/p/mcrojasp/curso/1420-sistemas-diseno/diploma/detalle/"
     },
     {
-      title: "Leadership: Technology / Engineering Management",
+      title: t("experience.certifications.3.title"),
       institution: "Udemy",
       period: "January 2023",
       url: "https://www.udemy.com/certificate/UC-37cf17c9-00f0-4ea1-b2a9-e36f29a6007b/"
-    },
-    {
-      title: "React Hooks",
-      institution: "Platzi",
-      period: "April 2021",
-      url: "https://platzi.com/p/mcrojasp/curso/2118-react-hooks/diploma/detalle/"
     }
   ];
 
@@ -105,10 +55,10 @@ const Experience = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Work <span className="portfolio-gradient bg-clip-text text-transparent">Experience</span>
+              {t("experience.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("experience.title").split(' ')[1]}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
-              More of my credentials and professional journey
+              {t("experience.subtitle")}
             </p>
           </div>
 
@@ -116,7 +66,7 @@ const Experience = () => {
           <div className="mb-16">
             <h3 className="text-2xl font-semibold text-gray-600 mb-8 flex items-center">
               <Calendar className="w-6 h-6 mr-3 text-primary" />
-              Work Experience
+              {t("experience.title")}
             </h3>
 
             <div className="space-y-8">
@@ -153,7 +103,7 @@ const Experience = () => {
                     </ul>
 
                     <div className="flex flex-wrap gap-2">
-                      {exp.technologies.map((tech, techIndex) => (
+                      {experienceTechs[index].map((tech, techIndex) => (
                         <span key={techIndex} className="tech-badge px-3 py-1 rounded-full text-xs">
                           {tech}
                         </span>
@@ -168,7 +118,7 @@ const Experience = () => {
           {/* Education */}
           <div className="mb-16">
             <h3 className="text-2xl font-semibold text-gray-600 mb-8">
-              Education
+              {t("experience.labels.education")}
             </h3>
 
             {education.map((edu, index) => (
@@ -192,7 +142,7 @@ const Experience = () => {
           {/* Certifications */}
           <div>
             <h3 className="text-2xl font-semibold text-gray-600 mb-8">
-              Certifications & Courses
+              {t("experience.labels.certifications")}
             </h3>
 
             <div className="grid md:grid-cols-2 gap-4">

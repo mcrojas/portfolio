@@ -1,8 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ChevronsDown, Code, Instagram, Linkedin, Mail } from "lucide-react";
+import { useTranslation, Trans } from "react-i18next";
 import heroImage from "@/assets/hero-bg.jpg";
 
 const Hero = () => {
+  const { t } = useTranslation();
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -25,17 +27,15 @@ const Hero = () => {
         <div className="animate-fade-in-up">
           <div className="inline-flex items-center px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-6">
             <Code className="w-4 h-4 mr-2" />
-            <span className="text-sm">10+ Years of Experience</span>
+            <span className="text-sm">{t("hero.badge")}</span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
-            Senior Frontend Engineer
-            <span className="text-primary"> bridging the gap between</span>
-            <span> Design & Code</span>
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
+            {t("hero.title")}
           </h1>
 
           <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
-            Crafting performant, accessible, and beautiful web experiences. Specializing in React, TypeScript, and design systems that scale.
+            {t("hero.subtitle")}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
@@ -44,7 +44,7 @@ const Hero = () => {
               className="portfolio-gradient hover:shadow-glow transition-all duration-300 text-lg px-8 py-6"
               onClick={() => scrollToSection('portfolio')}
             >
-              Portfolio
+              {t("hero.buttons.portfolio")}
             </Button>
             <Button
               variant="outline"
@@ -52,18 +52,18 @@ const Hero = () => {
               className="border-primary text-primary hover:bg-primary hover:text-white transition-all duration-300 text-lg px-8 py-6"
               onClick={() => scrollToSection('contact')}
             >
-              Contact me
+              {t("hero.buttons.contact")}
             </Button>
           </div>
 
-          <div className="flex items-center justify-center gap-6 pt-4">
-            <a href="https://www.instagram.com/sajor.dev" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110 transition-transform">
+          <div className="flex items-center justify-center gap-6 pt-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+            <a href="https://www.instagram.com/sajor.dev" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-all duration-300 hover:scale-125">
               <Instagram size={24} />
             </a>
-            <a href="https://www.linkedin.com/in/mcrojasp/" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110 transition-transform">
+            <a href="https://www.linkedin.com/in/mcrojasp/" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-all duration-300 hover:scale-125">
               <Linkedin size={24} />
             </a>
-            <a href="mailto:mcrojas09@gmail.com" target="_blank" rel="noopener noreferrer" className="text-muted-foreground hover:text-primary transition-colors duration-300 hover:scale-110 transition-transform">
+            <a href="mailto:mcrojas09@gmail.com" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-all duration-300 hover:scale-125">
               <Mail size={24} />
             </a>
           </div>

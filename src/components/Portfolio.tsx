@@ -3,6 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { ExternalLink, Github, Eye } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import uxdesignImg from "@/assets/portfolio/uxdesign.jpeg";
 import irecruitImg from "@/assets/portfolio/recruitireland.png";
 import recruitImg from "@/assets/portfolio/recruit-principal.png";
@@ -30,15 +31,16 @@ interface Project {
 }
 
 const Portfolio = () => {
+  const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   // Datos de ejemplo - reemplazar con datos reales
   const projects: Project[] = [
     {
       id: 1,
-      title: "Huerta Aizu",
-      description: "Huerta Aizu, an Argentine company dedicated to providing premium, ethically sourced produce.",
-      fullDescription: "Website for Huerta Aizu, an Argentine company dedicated to providing premium, ethically sourced produce. Explore our curated selection of fresh fruits and vegetables, grown with care in the fields of Mendoza, and discover how our commitment to mindful freshness can inspire your cooking.",
+      title: t("portfolio.projects.1.title"),
+      description: t("portfolio.projects.1.description"),
+      fullDescription: t("portfolio.projects.1.fullDescription"),
       image: huertaAizuImg,
       technologies: ["WordPress", "Elementor", "RESTful API"],
       liveUrl: "https://huertaaizu.com/",
@@ -47,9 +49,9 @@ const Portfolio = () => {
     },
     {
       id: 2,
-      title: "UX Design Institute",
-      description: "Educational platform built with Laravel and TailwindCSS.",
-      fullDescription: "Educational platform built with Laravel and TailwindCSS. Developed responsive interfaces and optimized user experience.",
+      title: t("portfolio.projects.2.title"),
+      description: t("portfolio.projects.2.description"),
+      fullDescription: t("portfolio.projects.2.fullDescription"),
       image: uxdesignImg,
       technologies: ["Laravel", "Tailwind CSS", "HubSpot"],
       liveUrl: "https://www.uxdesigninstitute.com/",
@@ -58,9 +60,9 @@ const Portfolio = () => {
     },
     {
       id: 3,
-      title: "Recruit Ireland",
-      description: "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs.",
-      fullDescription: "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs. Built with Laravel and integrated with various third-party services to enhance functionality and user engagement.",
+      title: t("portfolio.projects.3.title"),
+      description: t("portfolio.projects.3.description"),
+      fullDescription: t("portfolio.projects.3.fullDescription"),
       image: recruitImg,
       technologies: ["Laravel", "RESTful APIs", "TailwindCSS"],
       liveUrl: "https://www.recruitireland.com/",
@@ -69,9 +71,9 @@ const Portfolio = () => {
     },
     {
       id: 4,
-      title: "Recruit Ireland Advice Centre",
-      description: "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs.",
-      fullDescription: "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs. Built with WordPress and integrated with various third-party services to enhance functionality and user engagement.",
+      title: t("portfolio.projects.4.title"),
+      description: t("portfolio.projects.4.description"),
+      fullDescription: t("portfolio.projects.4.fullDescription"),
       image: irecruitImg,
       technologies: ["WordPress", "Elementor", "RESTful APIs", "Laravel (Site)"],
       liveUrl: "https://www.recruitireland.com/advice-centre/",
@@ -80,9 +82,9 @@ const Portfolio = () => {
     },
     {
       id: 5,
-      title: "Davis Events",
-      description: "Transform the events into extraordinary experiences with Davis Events Agency Dublin.",
-      fullDescription: "Transform your events into extraordinary experiences with Davis Events Agency Dublin. Developed responsive interfaces and optimized user experience.",
+      title: t("portfolio.projects.5.title"),
+      description: t("portfolio.projects.5.description"),
+      fullDescription: t("portfolio.projects.5.fullDescription"),
       image: davisImg,
       technologies: ["WordPress", "Elementor", "TailwindCSS"],
       liveUrl: "https://davisevents.ie/",
@@ -91,9 +93,9 @@ const Portfolio = () => {
     },
     {
       id: 6,
-      title: "Venturewave Capital",
-      description: "Corporate website using WordPress (Elementor) and Figma.",
-      fullDescription: "Corporate website using WordPress (Elementor) and Figma. Led the integration of custom designs.",
+      title: t("portfolio.projects.6.title"),
+      description: t("portfolio.projects.6.description"),
+      fullDescription: t("portfolio.projects.6.fullDescription"),
       image: ventureImg,
       technologies: ["WordPress", "Elementor", "ACF", "TailwindCSS"],
       liveUrl: "https://venturewave.capital/",
@@ -102,9 +104,9 @@ const Portfolio = () => {
     },
     {
       id: 7,
-      title: "BusinessPost",
-      description: "Exclusive insights into business, politics, tech, and culture. Delivering journalism for the informed reader.",
-      fullDescription: "Exclusive insights into business, politics, tech, and culture. Delivering journalism for the informed reader. Built with Laravel.",
+      title: t("portfolio.projects.7.title"),
+      description: t("portfolio.projects.7.description"),
+      fullDescription: t("portfolio.projects.7.fullDescription"),
       image: businessImg,
       technologies: ["Laravel", "TailwindCSS"],
       liveUrl: "https://businesspost.ie/",
@@ -113,9 +115,9 @@ const Portfolio = () => {
     },
     {
       id: 8,
-      title: "Troupe Al Meira",
-      description: "Troupe Al Meira is a studio dedicated to teaching oriental dance and its fusions in Venezuela with ReactJS, Vite, and TailwindCSS.",
-      fullDescription: "Troupe Al Meira is a studio dedicated to teaching oriental dance and its fusions in Venezuela with ReactJS, Vite, and TailwindCSS.",
+      title: t("portfolio.projects.8.title"),
+      description: t("portfolio.projects.8.description"),
+      fullDescription: t("portfolio.projects.8.fullDescription"),
       image: tamImg,
       technologies: ["ReactJS", "Vite", "TailwindCSS"],
       liveUrl: "https://troupealmeira.com/",
@@ -124,9 +126,9 @@ const Portfolio = () => {
     },
     {
       id: 9,
-      title: "Arrotek Medical Device",
-      description: "Arrotek specializes in medical device design, prototyping, and concept refinement.",
-      fullDescription: "Arrotek specializes in medical device design, prototyping, and concept refinement. Corporate website using WordPress (Elementor) and Figma. Led the integration of custom designs.",
+      title: t("portfolio.projects.9.title"),
+      description: t("portfolio.projects.9.description"),
+      fullDescription: t("portfolio.projects.9.fullDescription"),
       image: arrotekImg,
       technologies: ["WordPress", "Elementor", "Figma"],
       liveUrl: "https://arrotek.com/",
@@ -135,9 +137,9 @@ const Portfolio = () => {
     },
     {
       id: 10,
-      title: "Diocesan | Evangelus",
-      description: "Evangelus is a comprehensive online message platform in ReactJS.",
-      fullDescription: "Evangelus is a comprehensive online message platform in ReactJS. Led the integration of custom designs.",
+      title: t("portfolio.projects.10.title"),
+      description: t("portfolio.projects.10.description"),
+      fullDescription: t("portfolio.projects.10.fullDescription"),
       image: diocesanImg,
       technologies: ["ReactJS", "Node.js", "TailwindCSS"],
       liveUrl: "https://evangelus.com/",
@@ -146,9 +148,9 @@ const Portfolio = () => {
     },
     {
       id: 11,
-      title: "Donal's Kitchen",
-      description: "Delicious, doable recipes and meal plans Cook smarter with Donal's Kitchen.",
-      fullDescription: "Implemented responsive and visually appealing user interfaces using TailwindCSS and modern web technologies (WordPress, Stripe)",
+      title: t("portfolio.projects.11.title"),
+      description: t("portfolio.projects.11.description"),
+      fullDescription: t("portfolio.projects.11.fullDescription"),
       image: donalsImg,
       technologies: ["WordPress", "TailwindCSS", "Stripe", "WPBakery Page Builder"],
       liveUrl: "https://donalskitchen.com/",
@@ -157,9 +159,9 @@ const Portfolio = () => {
     },
     {
       id: 12,
-      title: "Digital Learning Institute",
-      description: "Online learning application with Laravel (Blade), TailwindCSS, and Livewire.",
-      fullDescription: "Online learning application with Laravel (Blade), TailwindCSS, and Livewire. Built interactive modules and improved user retention.",
+      title: t("portfolio.projects.12.title"),
+      description: t("portfolio.projects.12.description"),
+      fullDescription: t("portfolio.projects.12.fullDescription"),
       image: digitalImg,
       technologies: ["Laravel", "TailwindCSS", "Livewire"],
       liveUrl: "https://www.digitallearninginstitute.com/",
@@ -168,7 +170,12 @@ const Portfolio = () => {
     }
   ];
 
-  const categories = ["All", "Laravel", "WordPress", "ReactJS"];
+  const categories = [
+    { id: "All", label: t("portfolio.categories.all") },
+    { id: "Laravel", label: t("portfolio.categories.laravel") },
+    { id: "WordPress", label: t("portfolio.categories.wordpress") },
+    { id: "ReactJS", label: t("portfolio.categories.reactjs") }
+  ];
 
   const filteredProjects = selectedCategory === "All"
     ? projects
@@ -181,10 +188,10 @@ const Portfolio = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              My <span className="portfolio-gradient bg-clip-text text-transparent">Portfolio</span>
+              {t("portfolio.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("portfolio.title").split(' ')[1]}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              A selection of my most outstanding projects that showcase my experience and creativity
+              {t("portfolio.subtitle")}
             </p>
           </div>
 
@@ -193,15 +200,15 @@ const Portfolio = () => {
             <div className="flex flex-wrap gap-4 p-2 bg-card rounded-lg shadow-soft">
               {categories.map((category) => (
                 <Button
-                  key={category}
-                  variant={selectedCategory === category ? "default" : "ghost"}
-                  onClick={() => setSelectedCategory(category)}
-                  className={selectedCategory === category ?
+                  key={category.id}
+                  variant={selectedCategory === category.id ? "default" : "ghost"}
+                  onClick={() => setSelectedCategory(category.id)}
+                  className={selectedCategory === category.id ?
                     "portfolio-gradient hover:shadow-glow transition-all duration-300" :
                     "hover:bg-secondary transition-colors duration-300"
                   }
                 >
-                  {category}
+                  {category.label}
                 </Button>
               ))}
             </div>
@@ -227,7 +234,7 @@ const Portfolio = () => {
                         <DialogTrigger asChild>
                           <Button size="sm" variant="secondary" className="shadow-lg">
                             <Eye className="w-4 h-4 mr-2" />
-                            View Details
+                            {t("portfolio.viewDetails")}
                           </Button>
                         </DialogTrigger>
                         <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
@@ -244,7 +251,7 @@ const Portfolio = () => {
                               {project.fullDescription}
                             </p>
                             <div className="space-y-4">
-                              <h4 className="font-semibold">Technologies used:</h4>
+                              <h4 className="font-semibold">{t("portfolio.technologies")}</h4>
                               <div className="flex flex-wrap gap-2">
                                 {project.technologies.map((tech) => (
                                   <Badge key={tech} variant="secondary">{tech}</Badge>
@@ -255,14 +262,14 @@ const Portfolio = () => {
                               <Button asChild className="portfolio-gradient">
                                 <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                                   <ExternalLink className="w-4 h-4 mr-2" />
-                                  View Site
+                                  {t("portfolio.viewSite")}
                                 </a>
                               </Button>
                               {project.githubUrl !== "#" && (
                                 <Button variant="outline" asChild>
                                   <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                                     <Github className="w-4 h-4 mr-2" />
-                                    Code
+                                    {t("portfolio.code")}
                                   </a>
                                 </Button>
                               )}
@@ -294,14 +301,14 @@ const Portfolio = () => {
                     <Button size="sm" variant="outline" asChild className="flex-1">
                       <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
                         <ExternalLink className="w-4 h-4 mr-2" />
-                        View Site
+                        {t("portfolio.viewSite")}
                       </a>
                     </Button>
                     {project.githubUrl !== "#" && (
                       <Button size="sm" variant="outline" asChild className="flex-1">
                         <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
                           <Github className="w-4 h-4 mr-2" />
-                          Code
+                          {t("portfolio.code")}
                         </a>
                       </Button>
                     )}

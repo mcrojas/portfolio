@@ -2,8 +2,10 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
 import { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Skills = () => {
+  const { t } = useTranslation();
   const [animatedSkills, setAnimatedSkills] = useState<Record<string, number>>({});
 
   const technicalSkills = [
@@ -19,16 +21,12 @@ const Skills = () => {
   ];
 
   const tools = [
-    "Git & GitHub", "VS Code", "Figma", "Adobe", "Webpack", 
+    "Git & GitHub", "VS Code", "Figma", "Adobe", "Webpack",
     "yarn/NPM", "Vite", "Composer", "Headless CMS",
     "Docker", "Homestead", "AWS", "Material UI", "Netlify", "Firebase", "Supabase"
   ];
 
-  const softSkills = [
-    "Effective Communication", "Teamwork", "Problem Solving", 
-    "Time Management", "Adaptability", "Critical Thinking",
-    "Leadership", "Creativity"
-  ];
+  const softSkills = t("skills.softItems", { returnObjects: true }) as string[];
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,10 +62,10 @@ const Skills = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              My <span className="portfolio-gradient bg-clip-text text-transparent">Skills</span>
+              {t("skills.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("skills.title").split(' ')[1]}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Technologies and tools I master to create exceptional web experiences
+              {t("skills.subtitle")}
             </p>
           </div>
 
@@ -77,7 +75,7 @@ const Skills = () => {
               <CardHeader>
                 <CardTitle className="text-2xl font-bold text-center">
                   <span className="portfolio-gradient bg-clip-text text-transparent">
-                    Technical Skills
+                    {t("skills.labels.technical")}
                   </span>
                 </CardTitle>
               </CardHeader>
@@ -89,9 +87,9 @@ const Skills = () => {
                       <span className="text-sm text-muted-foreground">{skill.level}%</span>
                     </div>
                     <div className="skill-bar h-3">
-                      <div 
+                      <div
                         className="skill-progress h-full"
-                        style={{ 
+                        style={{
                           width: `${animatedSkills[skill.name] || 0}%`,
                           transitionDelay: `${index * 100}ms`
                         }}
@@ -109,16 +107,16 @@ const Skills = () => {
                 <CardHeader>
                   <CardTitle className="text-2xl font-bold text-center">
                     <span className="portfolio-gradient bg-clip-text text-transparent">
-                      Tools
+                      {t("skills.labels.tools")}
                     </span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="flex flex-wrap gap-2">
                     {tools.map((tool, index) => (
-                      <Badge 
-                        key={tool} 
-                        variant="outline" 
+                      <Badge
+                        key={tool}
+                        variant="outline"
                         className="hover:bg-primary hover:text-primary-foreground transition-colors duration-300 cursor-pointer"
                         style={{ animationDelay: `${index * 50}ms` }}
                       >
@@ -134,14 +132,14 @@ const Skills = () => {
                 <CardHeader>
                   <CardTitle className="text-2xl font-bold text-center">
                     <span className="portfolio-gradient bg-clip-text text-transparent">
-                      Soft Skills
+                      {t("skills.labels.soft")}
                     </span>
                   </CardTitle>
                 </CardHeader>
                 <CardContent>
                   <div className="grid grid-cols-2 gap-3">
                     {softSkills.map((skill, index) => (
-                      <div 
+                      <div
                         key={skill}
                         className="flex items-center space-x-2 p-2 rounded-lg hover:bg-secondary/50 transition-colors duration-300"
                         style={{ animationDelay: `${index * 75}ms` }}

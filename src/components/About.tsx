@@ -1,29 +1,31 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ArrowDown, Code, Rocket, Users, Zap } from "lucide-react";
 import { Button } from "./ui/button";
+import { useTranslation } from "react-i18next";
 import developerPhoto from '@/assets/mary-rojas-frontend-web-developer.png';
 
 const About = () => {
+  const { t } = useTranslation();
   const highlights = [
     {
       icon: <Code className="w-8 h-8" />,
-      title: "Clean Code",
-      description: "I write maintainable and scalable code following industry best practices."
+      title: t("about.highlights.cleanCode.title"),
+      description: t("about.highlights.cleanCode.description")
     },
     {
       icon: <Rocket className="w-8 h-8" />,
-      title: "Innovation",
-      description: "Always exploring new technologies and methodologies to create unique solutions."
+      title: t("about.highlights.innovation.title"),
+      description: t("about.highlights.innovation.description")
     },
     {
       icon: <Users className="w-8 h-8" />,
-      title: "Collaboration",
-      description: "I work effectively in teams, communicating clearly and contributing valuable ideas."
+      title: t("about.highlights.collaboration.title"),
+      description: t("about.highlights.collaboration.description")
     },
     {
       icon: <Zap className="w-8 h-8" />,
-      title: "Performance",
-      description: "I optimize every project for the best speed and user experience."
+      title: t("about.highlights.performance.title"),
+      description: t("about.highlights.performance.description")
     }
   ];
 
@@ -34,10 +36,10 @@ const About = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              About <span className="portfolio-gradient bg-clip-text text-transparent">me</span>
+              {t("about.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("about.title").split(' ')[1]}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Let me introduce myself
+              {t("about.subtitle")}
             </p>
           </div>
 
@@ -46,10 +48,10 @@ const About = () => {
             {/* Text Content */}
             <div className="space-y-6 animate-fade-in-up">
               <p className="text-md text-muted-foreground leading-relaxed">
-                I'm Mary, with over 10 years of experience, I specialize in building high-performance web applications where logic meets aesthetics. I bridge the gap between complex design systems and scalable frontend architecture, ensuring that every pixel serves a purpose and every component is built to last.
+                {t("about.description1")}
               </p>
               <p className="text-md text-muted-foreground leading-relaxed">
-                My focus is on React and Next.js, creating seamless user experiences that are as fast as they are intuitive. I don’t just write code; I take ownership of the interface, advocate for the user, and collaborate across teams to ship products that drive real business value.
+                {t("about.description2")}
               </p>
             </div>
 
@@ -66,25 +68,25 @@ const About = () => {
               <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
                   <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">10+</div>
-                  <p className="text-muted-foreground">Years of Experience</p>
+                  <p className="text-muted-foreground">{t("about.stats.experience")}</p>
                 </CardContent>
               </Card>
               <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
                   <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">40+</div>
-                  <p className="text-muted-foreground">Completed Projects</p>
+                  <p className="text-muted-foreground">{t("about.stats.projects")}</p>
                 </CardContent>
               </Card>
               <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
                   <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">6+</div>
-                  <p className="text-muted-foreground">Years Working Remotely</p>
+                  <p className="text-muted-foreground">{t("about.stats.remote")}</p>
                 </CardContent>
               </Card>
               <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
                   <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">100%</div>
-                  <p className="text-muted-foreground">Dedication</p>
+                  <p className="text-muted-foreground">{t("about.stats.dedication")}</p>
                 </CardContent>
               </Card>
             </div>
@@ -113,7 +115,7 @@ const About = () => {
                 rel="noopener noreferrer"
                 className="flex items-center"
               >
-                Download CV
+                {t("about.downloadCv")}
                 <ArrowDown className="w-4 h-4 ml-2" />
               </a>
             </Button>

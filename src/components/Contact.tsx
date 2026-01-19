@@ -4,17 +4,19 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { toast } from "@/hooks/use-toast";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
+import {
+  Mail,
+  Phone,
+  MapPin,
   Send,
   Instagram,
   Linkedin
 } from "lucide-react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 
 const Contact = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,19 +28,19 @@ const Contact = () => {
   const contactInfo = [
     {
       icon: <Mail className="w-6 h-6" />,
-      title: "Email",
+      title: t("contact.info.email"),
       value: "mcrojas09@gmail.com",
       link: "mailto:mcrojas09@gmail.com"
     },
     {
       icon: <Phone className="w-6 h-6" />,
-      title: "Phone",
+      title: t("contact.info.phone"),
       value: "+58 (414) 9185500",
       link: "tel:+584149185500"
     },
     {
       icon: <MapPin className="w-6 h-6" />,
-      title: "Location",
+      title: t("contact.info.location"),
       value: "Caracas, Venezuela",
       link: "#"
     }
@@ -68,43 +70,43 @@ const Contact = () => {
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setIsSubmitting(true);
+    e.preventDefault();
+    setIsSubmitting(true);
 
-  try {
-    const response = await fetch("https://formspree.io/f/xqaypwgp", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json"
-      },
-      body: JSON.stringify(formData)
-    });
+    try {
+      const response = await fetch("https://formspree.io/f/xqaypwgp", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json"
+        },
+        body: JSON.stringify(formData)
+      });
 
-    if (response.ok) {
+      if (response.ok) {
+        toast({
+          title: t("contact.form.success.title"),
+          description: t("contact.form.success.description"),
+        });
+        setFormData({
+          name: "",
+          email: "",
+          subject: "",
+          message: ""
+        });
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
       toast({
-        title: "Message sent!",
-        description: "Thank you for contacting me. I will respond soon.",
+        title: t("contact.form.error.title"),
+        description: t("contact.form.error.description"),
+        variant: "destructive",
       });
-      setFormData({
-        name: "",
-        email: "",
-        subject: "",
-        message: ""
-      });
-    } else {
-      throw new Error("Form submission failed");
+    } finally {
+      setIsSubmitting(false);
     }
-  } catch (error) {
-    toast({
-      title: "Error sending message",
-      description: "There was a problem sending your message. Please try again.",
-      variant: "destructive",
-    });
-  } finally {
-    setIsSubmitting(false);
-  }
-};
+  };
 
   return (
     <section id="contact" className="py-20 bg-secondary/40">
@@ -113,10 +115,10 @@ const Contact = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Let's discuss your <span className="portfolio-gradient bg-clip-text text-transparent">Project</span>
+              {t("contact.title").split(' ').slice(0, -1).join(' ')} <span className="portfolio-gradient bg-clip-text text-transparent">{t("contact.title").split(' ').slice(-1)}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Do you have a great idea? I would love to hear it and help you bring it to life
+              {t("contact.subtitle")}
             </p>
           </div>
 
@@ -124,32 +126,32 @@ const Contact = () => {
             {/* Contact Form */}
             <Card className="shadow-soft hover:shadow-elegant transition-all duration-300 animate-fade-in-up">
               <CardHeader>
-                <CardTitle className="text-2xl font-bold">Send me a message</CardTitle>
+                <CardTitle className="text-2xl font-bold">{t("contact.form.title")}</CardTitle>
               </CardHeader>
               <CardContent>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-4">
                     <div className="space-y-2">
-                      <Label htmlFor="name">Full Name</Label>
+                      <Label htmlFor="name">{t("contact.form.name")}</Label>
                       <Input
                         id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
-                        placeholder="Your name"
+                        placeholder={t("contact.form.namePlaceholder")}
                         required
                         className="transition-all duration-300 focus:ring-2 focus:ring-primary"
                       />
                     </div>
                     <div className="space-y-2">
-                      <Label htmlFor="email">Email</Label>
+                      <Label htmlFor="email">{t("contact.form.email")}</Label>
                       <Input
                         id="email"
                         name="email"
                         type="email"
                         value={formData.email}
                         onChange={handleInputChange}
-                        placeholder="hello@email.com"
+                        placeholder={t("contact.form.emailPlaceholder")}
                         required
                         className="transition-all duration-300 focus:ring-2 focus:ring-primary"
                       />
@@ -157,47 +159,47 @@ const Contact = () => {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="subject">Subject</Label>
+                    <Label htmlFor="subject">{t("contact.form.subject")}</Label>
                     <Input
                       id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      placeholder="What do you want to talk about?"
+                      placeholder={t("contact.form.subjectPlaceholder")}
                       required
                       className="transition-all duration-300 focus:ring-2 focus:ring-primary"
                     />
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="message">Message</Label>
+                    <Label htmlFor="message">{t("contact.form.message")}</Label>
                     <Textarea
                       id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
-                      placeholder="Tell me about your project..."
+                      placeholder={t("contact.form.messagePlaceholder")}
                       rows={6}
                       required
                       className="transition-all duration-300 focus:ring-2 focus:ring-primary resize-none"
                     />
                   </div>
 
-                  <Button 
-                    type="submit" 
-                    size="lg" 
+                  <Button
+                    type="submit"
+                    size="lg"
                     className="w-full portfolio-gradient hover:shadow-glow transition-all duration-300"
                     disabled={isSubmitting}
                   >
                     {isSubmitting ? (
                       <>
                         <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
-                        Sending...
+                        {t("contact.form.sending")}
                       </>
                     ) : (
                       <>
                         <Send className="w-4 h-4 mr-2" />
-                        Send message
+                        {t("contact.form.submit")}
                       </>
                     )}
                   </Button>
@@ -209,7 +211,7 @@ const Contact = () => {
             <div className="space-y-8 animate-slide-in-right">
               {/* Contact Methods */}
               <div className="space-y-6">
-                <h3 className="text-2xl font-bold">Contact information</h3>
+                <h3 className="text-2xl font-bold">{t("contact.info.title")}</h3>
                 {contactInfo.map((info, index) => (
                   <a
                     key={info.title}
@@ -231,7 +233,7 @@ const Contact = () => {
 
               {/* Social Links */}
               <div className="space-y-4">
-                <h4 className="text-lg font-semibold">Follow me on social media</h4>
+                <h4 className="text-lg font-semibold">{t("contact.info.social")}</h4>
                 <div className="flex gap-4">
                   {socialLinks.map((social, index) => (
                     <a
@@ -251,7 +253,7 @@ const Contact = () => {
               {/* CTA Card 
               <Card className="shadow-soft hover:shadow-elegant transition-all duration-300 portfolio-gradient-soft">
                 <CardContent className="p-6 text-center">
-                  <h4 className="text-lg font-bold mb-2">Prefer a call?</h4>
+                  <h4 className="text-lg font-bold mb-2">{t("contact.info.preferCall")}</h4>
                   <p className="text-muted-foreground text-sm mb-4">
                     Schedule a free 30-minute video call to discuss your project
                   </p>

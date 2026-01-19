@@ -1,22 +1,34 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Globe } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 
 const Navigation = () => {
+  const { t, i18n } = useTranslation();
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navItems = [
-    { id: "home", label: "Home" },
-    { id: "about", label: "About" },
-    { id: "skills", label: "Skills" },
-    { id: "experience", label: "Experience" },
-    { id: "portfolio", label: "Portfolio" },
-    { id: "services", label: "Services" },
-    { id: "contact", label: "Contact" }
+    { id: "home", label: t("nav.home") },
+    { id: "about", label: t("nav.about") },
+    { id: "skills", label: t("nav.skills") },
+    { id: "experience", label: t("nav.experience") },
+    { id: "portfolio", label: t("nav.portfolio") },
+    { id: "services", label: t("nav.services") },
+    { id: "contact", label: t("nav.contact") }
   ];
+
+  const changeLanguage = (lng: string) => {
+    i18n.changeLanguage(lng);
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -55,11 +67,10 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled 
-        ? "bg-background/95 backdrop-blur-lg shadow-soft" 
-        : "bg-transparent"
-    }`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled
+      ? "bg-background/95 backdrop-blur-lg shadow-soft"
+      : "bg-transparent"
+      }`}>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
@@ -77,11 +88,10 @@ const Navigation = () => {
                 key={item.id}
                 variant="ghost"
                 onClick={() => scrollToSection(item.id)}
-                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary ${
-                  activeSection === item.id 
-                    ? "text-primary" 
-                    : "text-muted-foreground hover:text-foreground"
-                }`}
+                className={`relative px-4 py-2 text-sm font-medium transition-all duration-300 hover:text-primary ${activeSection === item.id
+                  ? "text-primary"
+                  : "text-muted-foreground hover:text-foreground"
+                  }`}
               >
                 {item.label}
                 {activeSection === item.id && (
@@ -89,15 +99,32 @@ const Navigation = () => {
                 )}
               </Button>
             ))}
+
+            <DropdownMenu>
+              <DropdownMenuTrigger asChild>
+                <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground ml-2 hover:text-primary transition-colors duration-300">
+                  <Globe className="w-4 h-4 mr-2" />
+                  <span className="uppercase">{i18n.language.split('-')[0]}</span>
+                </Button>
+              </DropdownMenuTrigger>
+              <DropdownMenuContent align="end">
+                <DropdownMenuItem onClick={() => changeLanguage('en')}>
+                  English
+                </DropdownMenuItem>
+                <DropdownMenuItem onClick={() => changeLanguage('es')}>
+                  Español
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
           </div>
 
           {/* CTA Button - Desktop */}
           <div className="hidden md:block">
-            <Button 
+            <Button
               className="portfolio-gradient hover:shadow-glow transition-all duration-300"
               onClick={() => scrollToSection("contact")}
             >
-              Contact me
+              {t("nav.cta")}
             </Button>
           </div>
 
@@ -118,21 +145,41 @@ const Navigation = () => {
                     key={item.id}
                     variant="ghost"
                     onClick={() => scrollToSection(item.id)}
-                    className={`justify-start text-base transition-all duration-300 ${
-                      activeSection === item.id 
-                        ? "text-primary bg-primary/10" 
-                        : "text-muted-foreground hover:text-primary"
-                    }`}
+                    className={`justify-start text-base transition-all duration-300 ${activeSection === item.id
+                      ? "text-primary bg-primary/10"
+                      : "text-muted-foreground hover:text-primary"
+                      }`}
                   >
                     {item.label}
                   </Button>
                 ))}
-                <div className="pt-4 border-t border-border">
-                  <Button 
+                <div className="pt-4 border-t border-border flex flex-col gap-4">
+                  <div className="flex items-center justify-between px-4">
+                    <span className="text-sm font-medium text-muted-foreground">{t("nav.language")}</span>
+                    <div className="flex gap-2">
+                      <Button
+                        variant={i18n.language.startsWith('en') ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => changeLanguage('en')}
+                        className={i18n.language.startsWith('en') ? "portfolio-gradient" : ""}
+                      >
+                        EN
+                      </Button>
+                      <Button
+                        variant={i18n.language.startsWith('es') ? "default" : "outline"}
+                        size="sm"
+                        onClick={() => changeLanguage('es')}
+                        className={i18n.language.startsWith('es') ? "portfolio-gradient" : ""}
+                      >
+                        ES
+                      </Button>
+                    </div>
+                  </div>
+                  <Button
                     className="w-full portfolio-gradient hover:shadow-glow transition-all duration-300"
                     onClick={() => scrollToSection("contact")}
                   >
-                    Contact me
+                    {t("nav.cta")}
                   </Button>
                 </div>
               </div>

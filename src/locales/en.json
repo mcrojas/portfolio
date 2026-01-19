@@ -1,0 +1,377 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About",
+        "skills": "Skills",
+        "experience": "Experience",
+        "portfolio": "Portfolio",
+        "services": "Services",
+        "contact": "Contact",
+        "cta": "Contact me",
+        "language": "Language"
+    },
+    "hero": {
+        "badge": "Full Stack Developer",
+        "title": "Transforming ideas into digital experiences of high performance",
+        "subtitle": "Developing modern, scalable, and SEO-friendly web applications that drive your business growth.",
+        "buttons": {
+            "portfolio": "Portfolio",
+            "contact": "Contact me"
+        }
+    },
+    "portfolio": {
+        "title": "My Portfolio",
+        "subtitle": "A selection of my most outstanding projects that showcase my experience and creativity",
+        "categories": {
+            "all": "All",
+            "laravel": "Laravel",
+            "wordpress": "WordPress",
+            "reactjs": "ReactJS"
+        },
+        "viewDetails": "View Details",
+        "viewSite": "View Site",
+        "code": "Code",
+        "technologies": "Technologies used:",
+        "projects": {
+            "1": {
+                "title": "Huerta Aizu",
+                "description": "Huerta Aizu, an Argentine company dedicated to providing premium, ethically sourced produce.",
+                "fullDescription": "Website for Huerta Aizu, an Argentine company dedicated to providing premium, ethically sourced produce. Explore our curated selection of fresh fruits and vegetables, grown with care in the fields of Mendoza, and discover how our commitment to mindful freshness can inspire your cooking."
+            },
+            "2": {
+                "title": "UX Design Institute",
+                "description": "Educational platform built with Laravel and TailwindCSS.",
+                "fullDescription": "Educational platform built with Laravel and TailwindCSS. Developed responsive interfaces and optimized user experience."
+            },
+            "3": {
+                "title": "Recruit Ireland",
+                "description": "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs.",
+                "fullDescription": "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs. Built with Laravel and integrated with various third-party services to enhance functionality and user engagement."
+            },
+            "4": {
+                "title": "Recruit Ireland Advice Centre",
+                "description": "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs.",
+                "fullDescription": "Recruit Ireland is one of Ireland’s leading job platforms and trusted career advisory hubs. Built with WordPress and integrated with various third-party services to enhance functionality and user engagement."
+            },
+            "5": {
+                "title": "Davis Events",
+                "description": "Transform the events into extraordinary experiences with Davis Events Agency Dublin.",
+                "fullDescription": "Transform your events into extraordinary experiences with Davis Events Agency Dublin. Developed responsive interfaces and optimized user experience."
+            },
+            "6": {
+                "title": "Venturewave Capital",
+                "description": "Corporate website using WordPress (Elementor) and Figma.",
+                "fullDescription": "Corporate website using WordPress (Elementor) and Figma. Led the integration of custom designs."
+            },
+            "7": {
+                "title": "BusinessPost",
+                "description": "Exclusive insights into business, politics, tech, and culture. Delivering journalism for the informed reader.",
+                "fullDescription": "Exclusive insights into business, politics, tech, and culture. Delivering journalism for the informed reader. Built with Laravel."
+            },
+            "8": {
+                "title": "Troupe Al Meira",
+                "description": "Troupe Al Meira is a studio dedicated to teaching oriental dance and its fusions in Venezuela with ReactJS, Vite, and TailwindCSS.",
+                "fullDescription": "Troupe Al Meira is a studio dedicated to teaching oriental dance and its fusions in Venezuela with ReactJS, Vite, and TailwindCSS."
+            },
+            "9": {
+                "title": "Arrotek Medical Device",
+                "description": "Arrotek specializes in medical device design, prototyping, and concept refinement.",
+                "fullDescription": "Arrotek specializes in medical device design, prototyping, and concept refinement. Corporate website using WordPress (Elementor) and Figma. Led the integration of custom designs."
+            },
+            "10": {
+                "title": "Diocesan | Evangelus",
+                "description": "Evangelus is a comprehensive online message platform in ReactJS.",
+                "fullDescription": "Evangelus is a comprehensive online message platform in ReactJS. Led the integration of custom designs."
+            },
+            "11": {
+                "title": "Donal's Kitchen",
+                "description": "Delicious, doable recipes and meal plans Cook smarter with Donal's Kitchen.",
+                "fullDescription": "Implemented responsive and visually appealing user interfaces using TailwindCSS and modern web technologies (WordPress, Stripe)"
+            },
+            "12": {
+                "title": "Digital Learning Institute",
+                "description": "Online learning application with Laravel (Blade), TailwindCSS, and Livewire.",
+                "fullDescription": "Online learning application with Laravel (Blade), TailwindCSS, and Livewire. Built interactive modules and improved user retention."
+            }
+        }
+    },
+    "services": {
+        "title": "My Services",
+        "subtitle": "Professional web development solutions tailored to your business needs",
+        "popular": "Most Popular",
+        "custom": {
+            "title": "Do you need something customized?",
+            "subtitle": "Every project is unique. If you have a specific idea or need a tailored solution, let's talk about how I can help you make it a reality.",
+            "button": "Contact for customized project"
+        },
+        "items": {
+            "frontend": {
+                "title": "Frontend Web Development",
+                "description": "Creation of modern and responsive interfaces using the latest technologies like React, Next.js, and TypeScript.",
+                "features": [
+                    "Development with React.js/Next.js",
+                    "Clean and maintainable code",
+                    "API integration",
+                    "Testing and documentation"
+                ]
+            },
+            "uiux": {
+                "title": "UI/UX Design",
+                "description": "Creation of intuitive and engaging user experiences that convert visitors into customers.",
+                "features": [
+                    "Interactive prototyping",
+                    "Responsive design",
+                    "User research",
+                    "Design systems"
+                ]
+            },
+            "cms": {
+                "title": "Custom CMS Solutions",
+                "description": "Develop a simple, user-friendly Content Management System (CMS) so your client can easily update and manage their website content without code.",
+                "features": [
+                    "Headless CMS implementation (Contentful, WordPress, Shopify etc.)",
+                    "Intuitive admin dashboard",
+                    "Content editing and publishing workflows",
+                    "Performance optimization"
+                ]
+            },
+            "performance": {
+                "title": "Performance Optimization",
+                "description": "Improving the speed and performance of your website for a better user experience and SEO.",
+                "features": [
+                    "Performance analysis",
+                    "Code optimization",
+                    "Lazy loading",
+                    "Core Web Vitals"
+                ]
+            },
+            "seo": {
+                "title": "Technical SEO",
+                "description": "Technical optimization to improve search engine rankings and increase online visibility.",
+                "features": [
+                    "On-page optimization",
+                    "Structured data",
+                    "Meta tags optimization",
+                    "Site speed optimization"
+                ]
+            },
+            "consulting": {
+                "title": "Technical Consulting",
+                "description": "Specialized advice for architecture and best practices in your project's development.",
+                "features": [
+                    "Code audit",
+                    "Application architecture",
+                    "Stack technology selection",
+                    "Code review and mentoring"
+                ]
+            }
+        }
+    },
+    "contact": {
+        "title": "Let's discuss your Project",
+        "subtitle": "Do you have a great idea? I would love to hear it and help you bring it to life",
+        "form": {
+            "title": "Send me a message",
+            "name": "Full Name",
+            "namePlaceholder": "Your name",
+            "email": "Email",
+            "emailPlaceholder": "hello@email.com",
+            "subject": "Subject",
+            "subjectPlaceholder": "What do you want to talk about?",
+            "message": "Message",
+            "messagePlaceholder": "Tell me about your project...",
+            "submit": "Send message",
+            "sending": "Sending...",
+            "success": {
+                "title": "Message sent!",
+                "description": "Thank you for contacting me. I will respond soon."
+            },
+            "error": {
+                "title": "Error sending message",
+                "description": "There was a problem sending your message. Please try again."
+            }
+        },
+        "info": {
+            "title": "Contact information",
+            "email": "Email",
+            "phone": "Phone",
+            "location": "Location",
+            "social": "Follow me on social media",
+            "preferCall": "Prefer a call?"
+        }
+    },
+    "about": {
+        "title": "About me",
+        "subtitle": "Let me introduce myself",
+        "description1": "I'm Mary, with over 10 years of experience, I specialize in building high-performance web applications where logic meets aesthetics. I bridge the gap between complex design systems and scalable frontend architecture, ensuring that every pixel serves a purpose and every component is built to last.",
+        "description2": "My focus is on React and Next.js, creating seamless user experiences that are as fast as they are intuitive. I don’t just write code; I take ownership of the interface, advocate for the user, and collaborate across teams to ship products that drive real business value.",
+        "stats": {
+            "experience": "Years of Experience",
+            "projects": "Completed Projects",
+            "remote": "Years Working Remotely",
+            "dedication": "Dedication"
+        },
+        "highlights": {
+            "cleanCode": {
+                "title": "Clean Code",
+                "description": "I write maintainable and scalable code following industry best practices."
+            },
+            "innovation": {
+                "title": "Innovation",
+                "description": "Always exploring new technologies and methodologies to create unique solutions."
+            },
+            "collaboration": {
+                "title": "Collaboration",
+                "description": "I work effectively in teams, communicating clearly and contributing valuable ideas."
+            },
+            "performance": {
+                "title": "Performance",
+                "description": "I optimize every project for the best speed and user experience."
+            }
+        },
+        "downloadCv": "Download CV"
+    },
+    "experience": {
+        "title": "Work Experience",
+        "subtitle": "More of my credentials and professional journey",
+        "labels": {
+            "remote": "Remote",
+            "fullTime": "Full-time",
+            "education": "Education",
+            "certifications": "Certifications & Courses"
+        },
+        "items": [
+            {
+                "title": "Frontend Software Engineer",
+                "company": "Square1",
+                "period": "August 2019 - Present",
+                "location": "Dublin, Ireland / Spain",
+                "type": "Remote",
+                "achievements": [
+                    "Architected and optimized 10+ enterprise-level platforms using React and Next.js, achieving 12% faster page loads and an 8% increase in user retention.",
+                    "Engineered custom WordPress themes and complex Laravel integrations, reducing JavaScript overhead while maintaining rich interactivity across devices.",
+                    "Standardized UI development by implementing TailwindCSS, which reduced cross-browser compatibility issues by 18%."
+                ]
+            },
+            {
+                "title": "Intermediate Layout Programmer",
+                "company": "Teravision Technologies",
+                "period": "August 2014 - July 2019",
+                "location": "Caracas, Venezuela",
+                "type": "Full-time",
+                "achievements": [
+                    "Delivered 15+ responsive sites with consistent 80+ PageSpeed score.",
+                    "Mentored junior developers on component architecture and performance.",
+                    "Engineered iOS UI components using Swift."
+                ]
+            },
+            {
+                "title": "Web Developer",
+                "company": "Oruga Studio",
+                "period": "July 2010 - July 2014",
+                "location": "Caracas, Venezuela",
+                "type": "Full-time",
+                "achievements": [
+                    "Increased organic traffic by 20% and mobile engagement by 35% for 10+ dynamic web projects.",
+                    "Streamlined cross-functional workflows between design and backend teams to optimize code maintainability."
+                ]
+            },
+            {
+                "title": "Web Assembler",
+                "company": "E4GS Interactive LLC",
+                "period": "January 2009 - July 2010",
+                "location": "Caracas, Venezuela",
+                "type": "Full-time",
+                "achievements": [
+                    "Completed an internship as a graduation requirement for my Systems Analysis and Design degree, gaining practical expertise in web development and platform administration.",
+                    "My role focused on the full lifecycle of websites built on the Joomla CMS, from initial development to ongoing administration.",
+                    "I was responsible for ensuring high standards through quality control, security implementation, and technical support. Additionally, I managed and maintained Google Apps services."
+                ]
+            }
+        ],
+        "education": [
+            {
+                "title": "Associate's Degree in Systems Analysis and Design",
+                "institution": "UNEFA",
+                "period": "2007-2010",
+                "description": "Systems Analysis and Design"
+            }
+        ],
+        "certifications": [
+            {
+                "title": "CSS Architectures Course"
+            },
+            {
+                "title": "Artificial Intelligence for Marketing and Content Course"
+            },
+            {
+                "title": "Design System"
+            },
+            {
+                "title": "Leadership: Technology / Engineering Management"
+            },
+            {
+                "title": "React Hooks"
+            }
+        ]
+    },
+    "skills": {
+        "title": "Skills",
+        "subtitle": "Technologies and tools I master to create exceptional web experiences",
+        "labels": {
+            "technical": "Technical Skills",
+            "tools": "Tools",
+            "soft": "Soft Skills"
+        },
+        "softItems": [
+            "Effective Communication",
+            "Teamwork",
+            "Problem Solving",
+            "Time Management",
+            "Adaptability",
+            "Critical Thinking",
+            "Leadership",
+            "Creativity"
+        ]
+    },
+    "testimonials": {
+        "title": "Testimonials & <0>Reviews</0>",
+        "subtitle": "See what others are saying about working with me",
+        "items": [
+            {
+                "title": "Paul Conroy - CTO Square1",
+                "description": "Mary has been an integral part of our team for over six years, bringing deep expertise in WordPress and frontend development. She has a real talent for translating designs into clean, responsive, and user-friendly web experiences. She has a great eye for detail and a strong grasp of what makes a site feel polished and intuitive. She’s also highly skilled at customising WordPress to meet complex client requirements, turning challenging briefs into systems that are both reliable and easy to manage."
+            },
+            {
+                "title": "Luciana Caretta Marconi - People Manager Square1",
+                "description": "I had the pleasure of working with Mary for six years, and throughout that time, she proved to be not only a great professional but also a wonderful person. She's reliable, committed, and always brought a calm and thoughtful presence to the team. Working with her was truly enjoyable, and I would recommend her without hesitation. Any team would be lucky to have her."
+            },
+            {
+                "title": "Ivan Mingot - PM TeravisionTech",
+                "description": "I've worked as Mary's Project Manager on several projects, and having her on the team always makes things easier. It really feels like one less thing to worry about — when Mary’s involved, you know things are in good hands. She’s easy to communicate with, understands tasks quickly, and often adds helpful context. She’s great at giving realistic estimates and explaining technical details clearly, even when the topic is complex. Mary also works really well under pressure and is very efficient at solving problems when things get tough. We've worked together on Laravel projects (both frontend and backend), WordPress builds using themes and a range of plugins, as well as custom development."
+            },
+            {
+                "title": "Gerardo Romero - Dev Square1",
+                "description": "I had the pleasure of working alongside Mary Rojas, and I can confidently say she is an exceptional front-end engineer. Mary consistently demonstrated a deep understanding of React.js, Laravel, and WordPress, always delivering clean, scalable, and user-focused solutions. Her attention to detail and ability to turn complex requirements into intuitive user experiences made a huge impact on our projects. Beyond her technical skills, Mary is a great teammate, collaborative, proactive, and always willing to help. Any team would be lucky to have her."
+            },
+            {
+                "title": "Veronica Silva - PM TeravisionTech",
+                "description": "I worked with Mary for about 5 years at Teravision Technologies, where we collaborated on various projects (Responsive Web Design, WordPress, iOS App, etc.). Thanks to Mary being part of our Front-end team, we successfully achieved the goals the company set in this area. For example, we relied on her commitment to learn and implement React Native in a significant company project. Mary was a key member of that team, and she approached the learning and execution curve for this technology during the project's progression with remarkable determination."
+            },
+            {
+                "title": "Alexa Casique - Graphic Designer OrugaStudio",
+                "description": "I worked with Mary for 2 years at Oruga Studio. Throughout this time, Mary was incredibly focused on her projects, always eager to help wherever she could. She is highly professional in her work, and the quality of her output is impeccable."
+            }
+        ]
+    },
+    "footer": {
+        "tagline": "Creating exceptional web experiences",
+        "rights": "All rights reserved.",
+        "madeWith": "Made with ❤️ and ReactJS"
+    },
+    "seo": {
+        "title": "Mary Rojas | Frontend Developer & UI/UX Specialist",
+        "description": "Professional portfolio of Mary Rojas. Specialist in website creation, freelance work, and frontend development with React and Next.js. Transforming ideas into digital experiences.",
+        "keywords": "Frontend Developer, React, Next.js, UI/UX, Website creation, Freelance work, Web Development, Portfolio, JavaScript, Mary Rojas"
+    }
+}

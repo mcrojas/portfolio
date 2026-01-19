@@ -1,16 +1,18 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { 
-  Code, 
-  Palette, 
-  Smartphone, 
-  Zap, 
-  Search, 
+import {
+  Code,
+  Palette,
+  Smartphone,
+  Zap,
+  Search,
   Settings,
   ArrowRight
 } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Services = () => {
+  const { t } = useTranslation();
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
@@ -25,79 +27,49 @@ const Services = () => {
   const services = [
     {
       icon: <Code className="w-12 h-12" />,
-      title: "Frontend Web Development",
-      description: "Creation of modern and responsive interfaces using the latest technologies like React, Next.js, and TypeScript.",
-      features: [
-        "Development with React.js/Next.js",
-        "Clean and maintainable code",
-        "API integration",
-        "Testing and documentation"
-      ],
+      title: t("services.items.frontend.title"),
+      description: t("services.items.frontend.description"),
+      features: t("services.items.frontend.features", { returnObjects: true }) as string[],
       price: "Starting at $800",
       popular: true
     },
     {
       icon: <Palette className="w-12 h-12" />,
-      title: "UI/UX Design",
-      description: "Creation of intuitive and engaging user experiences that convert visitors into customers.",
-      features: [
-        "Interactive prototyping",
-        "Responsive design",
-        "User research",
-        "Design systems"
-      ],
+      title: t("services.items.uiux.title"),
+      description: t("services.items.uiux.description"),
+      features: t("services.items.uiux.features", { returnObjects: true }) as string[],
       price: "Starting at $600",
       popular: false
     },
     {
       icon: <Smartphone className="w-12 h-12" />,
-      title: "Custom CMS Solutions",
-      description: "Develop a simple, user-friendly Content Management System (CMS) so your client can easily update and manage their website content without code.",
-      features: [
-        "Headless CMS implementation (Contentful, WordPress, Shopify etc.)",
-        "Intuitive admin dashboard",
-        "Content editing and publishing workflows",
-        "Performance optimization"
-      ],
+      title: t("services.items.cms.title"),
+      description: t("services.items.cms.description"),
+      features: t("services.items.cms.features", { returnObjects: true }) as string[],
       price: "Starting at $500",
       popular: false
     },
     {
       icon: <Zap className="w-12 h-12" />,
-      title: "Performance Optimization",
-      description: "Improving the speed and performance of your website for a better user experience and SEO.",
-      features: [
-        "Performance analysis",
-        "Code optimization",
-        "Lazy loading",
-        "Core Web Vitals"
-      ],
+      title: t("services.items.performance.title"),
+      description: t("services.items.performance.description"),
+      features: t("services.items.performance.features", { returnObjects: true }) as string[],
       price: "Starting at $400",
       popular: false
     },
     {
       icon: <Search className="w-12 h-12" />,
-      title: "Technical SEO",
-      description: "Technical optimization to improve search engine rankings and increase online visibility.",
-      features: [
-        "On-page optimization",
-        "Structured data",
-        "Meta tags optimization",
-        "Site speed optimization"
-      ],
+      title: t("services.items.seo.title"),
+      description: t("services.items.seo.description"),
+      features: t("services.items.seo.features", { returnObjects: true }) as string[],
       price: "Starting at $300",
       popular: false
     },
     {
       icon: <Settings className="w-12 h-12" />,
-      title: "Technical Consulting",
-      description: "Specialized advice for architecture and best practices in your project's development.",
-      features: [
-        "Code audit",
-        "Application architecture",
-        "Stack technology selection",
-        "Code review and mentoring"
-      ],
+      title: t("services.items.consulting.title"),
+      description: t("services.items.consulting.description"),
+      features: t("services.items.consulting.features", { returnObjects: true }) as string[],
       price: "Starting at $50/hour",
       popular: false
     }
@@ -110,29 +82,28 @@ const Services = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              My <span className="portfolio-gradient bg-clip-text text-transparent">Services</span>
+              {t("services.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("services.title").split(' ')[1]}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Professional web development solutions tailored to your business needs
+              {t("services.subtitle")}
             </p>
           </div>
 
           {/* Services Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <Card 
+              <Card
                 key={service.title}
-                className={`group relative overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-500 hover:scale-105 animate-fade-in-up ${
-                  service.popular ? 'ring-2 ring-primary shadow-glow' : ''
-                }`}
+                className={`group relative overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-500 hover:scale-105 animate-fade-in-up ${service.popular ? 'ring-2 ring-primary shadow-glow' : ''
+                  }`}
                 style={{ animationDelay: `${index * 150}ms` }}
               >
                 {service.popular && (
                   <div className="absolute top-4 right-4 portfolio-gradient text-white text-xs px-2 py-1 rounded-full font-semibold">
-                    Most Popular
+                    {t("services.popular")}
                   </div>
                 )}
-                
+
                 <CardHeader className="text-center pb-4">
                   <div className="text-primary group-hover:text-primary/80 transition-colors duration-300 mb-4 flex justify-center">
                     {service.icon}
@@ -177,14 +148,13 @@ const Services = () => {
           {/* CTA Section */}
           <div className="text-center mt-16 p-8 bg-card rounded-2xl shadow-soft">
             <h3 className="text-2xl font-bold mb-4">
-              Do you need something customized?
+              {t("services.custom.title")}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-              Every project is unique. If you have a specific idea or need a tailored solution,
-              let's talk about how I can help you make it a reality.
+              {t("services.custom.subtitle")}
             </p>
             <Button size="lg" className="portfolio-gradient hover:shadow-glow transition-all duration-300" onClick={() => scrollToSection("contact")}>
-              Contact for customized project
+              {t("services.custom.button")}
               <ArrowRight className="w-4 h-4 ml-2" />
             </Button>
           </div>
