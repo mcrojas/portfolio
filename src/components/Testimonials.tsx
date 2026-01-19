@@ -43,7 +43,8 @@ const Testimonials = () => {
               {testimonialItems.map((item, index) => {
                 const Icon = icons[index % icons.length];
                 return (
-                  <CarouselItem key={index} className="md:basis-1/2 lg:basis-1/2">
+                  <CarouselItem key={index}
+                    className="md:basis-1/2 lg:basis-1/2">
                     <div className="p-1">
                       <Card className="border-0 shadow-soft hover:shadow-medium transition-all duration-300">
                         <CardContent className="p-6 text-center h-full flex flex-col">
