@@ -12,8 +12,8 @@
     },
     "hero": {
         "badge": "Full Stack Developer",
-        "title": "Transforming ideas into digital experiences of high performance",
-        "subtitle": "Developing modern, scalable, and SEO-friendly web applications that drive your business growth.",
+        "title": "Transforming Ideas into High-Performance Digital Experiences",
+        "subtitle": "Building modern, scalable, and SEO-optimized web applications that accelerate your business growth.",
         "buttons": {
             "portfolio": "Portfolio",
             "contact": "Contact me"
@@ -21,7 +21,7 @@
     },
     "portfolio": {
         "title": "My Portfolio",
-        "subtitle": "A selection of my most outstanding projects that showcase my experience and creativity",
+        "subtitle": "A curated selection of projects showcasing my expertise and creative problem-solving",
         "categories": {
             "all": "All",
             "laravel": "Laravel",
@@ -127,7 +127,7 @@
             },
             "cms": {
                 "title": "Custom CMS Solutions",
-                "description": "Develop a simple, user-friendly Content Management System (CMS) so your client can easily update and manage their website content without code.",
+                "description": "Implement intuitive Content Management Systems that empower your team to update and manage website content effortlessly—no coding required.",
                 "features": [
                     "Headless CMS implementation (Contentful, WordPress, Shopify etc.)",
                     "Intuitive admin dashboard",
@@ -203,8 +203,8 @@
     "about": {
         "title": "About me",
         "subtitle": "Let me introduce myself",
-        "description1": "I'm Mary, with over 10 years of experience, I specialize in building high-performance web applications where logic meets aesthetics. I bridge the gap between complex design systems and scalable frontend architecture, ensuring that every pixel serves a purpose and every component is built to last.",
-        "description2": "My focus is on React and Next.js, creating seamless user experiences that are as fast as they are intuitive. I don’t just write code; I take ownership of the interface, advocate for the user, and collaborate across teams to ship products that drive real business value.",
+        "description1": "I'm Mary, a frontend engineer with over 10 years of experience specializing in high-performance web applications where logic meets aesthetics. I bridge the gap between complex design systems and scalable frontend architecture, ensuring that every pixel serves a purpose and every component is built to last.",
+        "description2": "Specializing in React and Next.js, I create seamless user experiences that are both lightning-fast and intuitively designed. I don’t just write code; I take ownership of the interface, advocate for the user, and collaborate across teams to ship products that drive real business value.",
         "stats": {
             "experience": "Years of Experience",
             "projects": "Completed Projects",
@@ -335,7 +335,7 @@
         ]
     },
     "testimonials": {
-        "title": "Testimonials & <0>Reviews</0>",
+        "title": "Testimonials",
         "subtitle": "See what others are saying about working with me",
         "items": [
             {

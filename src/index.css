@@ -20,7 +20,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 0 0% 19%;
 
-    --primary: 324 100% 40%;
+    --primary: 324 85% 45%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 0 0% 92%;
@@ -42,9 +42,9 @@ All colors MUST be HSL.
     /* Portfolio specific colors */
     --portfolio-dark: 0 0% 19%;
     --portfolio-light: 0 0% 92%;
-    --portfolio-gradient: linear-gradient(135deg, hsl(324 100% 40%), hsl(324 100% 50%));
+    --portfolio-gradient: linear-gradient(135deg, hsl(324 85% 45%), hsl(270 70% 50%));
     --portfolio-gradient-soft: linear-gradient(135deg, hsl(324 100% 40% / 0.1), hsl(324 100% 50% / 0.1));
-    
+
     /* Shadows */
     --shadow-elegant: 0 10px 30px -10px hsl(324 100% 40% / 0.2);
     --shadow-soft: 0 4px 20px -4px hsl(0 0% 0% / 0.1);
@@ -83,7 +83,7 @@ All colors MUST be HSL.
     --popover: 222.2 84% 4.9%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 210 40% 98%;
+    --primary: 324 85% 35%;
     --primary-foreground: 222.2 47.4% 11.2%;
 
     --secondary: 217.2 32.6% 17.5%;
@@ -135,39 +135,39 @@ All colors MUST be HSL.
   .portfolio-gradient {
     background: var(--portfolio-gradient);
   }
-  
+
   .portfolio-gradient-soft {
     background: var(--portfolio-gradient-soft);
   }
-  
+
   .shadow-elegant {
     box-shadow: var(--shadow-elegant);
   }
-  
+
   .shadow-soft {
     box-shadow: var(--shadow-soft);
   }
-  
+
   .shadow-glow {
     box-shadow: var(--shadow-glow);
   }
-  
+
   .transition-smooth {
     transition: var(--transition-smooth);
   }
-  
+
   .transition-bounce {
     transition: var(--transition-bounce);
   }
-  
+
   .hero-gradient {
     background: linear-gradient(135deg, hsl(324 100% 40% / 0.05), hsl(324 100% 50% / 0.1));
   }
-  
+
   .skill-bar {
     @apply relative overflow-hidden rounded-full bg-secondary;
   }
-  
+
   .skill-progress {
     @apply h-full portfolio-gradient rounded-full transition-all duration-1000 ease-out;
   }

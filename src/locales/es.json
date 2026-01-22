@@ -12,8 +12,8 @@
     },
     "hero": {
         "badge": "Desarrollador Full Stack",
-        "title": "Transformo ideas en experiencias digitales de alto rendimiento",
-        "subtitle": "Desarrollo aplicaciones web modernas, escalables y SEO-friendly que impulsan el crecimiento de tu negocio.",
+        "title": "Transformando ideas en experiencias digitales de alto rendimiento",
+        "subtitle": "Creación de aplicaciones web modernas, escalables y optimizadas para SEO que aceleran el crecimiento de su negocio.",
         "buttons": {
             "portfolio": "Portafolio",
             "contact": "Contáctame"
@@ -21,7 +21,7 @@
     },
     "portfolio": {
         "title": "Mi Portafolio",
-        "subtitle": "Una selección de mi más destacados proyectos que muestran mi experiencia y creatividad",
+        "subtitle": "Una selección de proyectos que muestran mi experiencia y mi capacidad para resolver problemas de forma creativa.",
         "categories": {
             "all": "Todos",
             "laravel": "Laravel",
@@ -127,7 +127,7 @@
             },
             "cms": {
                 "title": "Soluciones de CMS Personalizadas",
-                "description": "Desarrolle un Sistema de Gestión de Contenidos (CMS) sencillo y amigable para que su cliente pueda actualizar y gestionar fácilmente el contenido de su sitio web sin código.",
+                "description": "Implemente sistemas de gestión de contenidos intuitivos que permitan a su equipo actualizar y gestionar el contenido del sitio web sin esfuerzo y sin necesidad de conocimientos de programación.",
                 "features": [
                     "Implementación de CMS Headless (Contentful, WordPress, Shopify, etc.)",
                     "Panel de administración intuitivo",
@@ -168,10 +168,10 @@
         }
     },
     "contact": {
-        "title": "Hablemos de tu Proyecto",
+        "title": "Conversemos sobre tu Proyecto",
         "subtitle": "¿Tienes una gran idea? Me encantaría escucharla y ayudarte a hacerla realidad",
         "form": {
-            "title": "Enviame un mensaje",
+            "title": "Envíame un mensaje",
             "name": "Nombre completo",
             "namePlaceholder": "Tu nombre",
             "email": "Correo electrónico",
@@ -203,8 +203,8 @@
     "about": {
         "title": "Sobre mí",
         "subtitle": "Permítanme presentarme",
-        "description1": "Soy Mary, con más de 10 años de experiencia, me especializo en la construcción de aplicaciones web de alto rendimiento donde la lógica se encuentra con la estética. Cierro la brecha entre sistemas de diseño complejos y arquitectura frontend escalable, asegurando que cada píxel tenga un propósito y cada componente esté construido para durar.",
-        "description2": "Mi enfoque está en React y Next.js, creando experiencias de usuario fluidas que son tan rápidas como intuitivas. No solo escribo código; me apropio de la interfaz, defiendo al usuario y colaboro en equipos para entregar productos que generen un valor comercial real.",
+        "description1": "Soy Mary, frontend developer con más de 10 años de experiencia especializada en aplicaciones web de alto rendimiento donde la lógica se une a la estética. Cierro la brecha entre sistemas de diseño complejos y arquitectura frontend escalable, asegurando que cada píxel tenga un propósito y cada componente esté construido para durar.",
+        "description2": "Especializado en React y Next.js, creo experiencias de usuario fluidas, ultrarrápidas y con un diseño intuitivo. No solo escribo código; me apropio de la interfaz y colaboro en equipos para entregar productos que generen un valor comercial real.",
         "stats": {
             "experience": "Años de experiencia",
             "projects": "Proyectos completados",
@@ -335,7 +335,7 @@
         ]
     },
     "testimonials": {
-        "title": "Testimonios y <0>Opiniones</0>",
+        "title": "Testimonios",
         "subtitle": "Lo que otros dicen sobre trabajar conmigo",
         "items": [
             {

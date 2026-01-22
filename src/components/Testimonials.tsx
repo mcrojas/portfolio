@@ -22,9 +22,7 @@ const Testimonials = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              <Trans i18nKey="testimonials.title">
-                Testimonials & <span className="portfolio-gradient bg-clip-text text-transparent">Reviews</span>
-              </Trans>
+            {t("testimonials.title")}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               {t("testimonials.subtitle")}
