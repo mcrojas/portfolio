@@ -1,10 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { ChevronsDown, Code, Instagram, Linkedin, Mail } from "lucide-react";
-import { useTranslation, Trans } from "react-i18next";
+import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-bg.jpg";
+import { useEffect, useState } from "react";
 
 const Hero = () => {
   const { t } = useTranslation();
+  const [scrollY, setScrollY] = useState(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     element?.scrollIntoView({ behavior: 'smooth' });
@@ -13,13 +25,16 @@ const Hero = () => {
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
-      <div className="absolute inset-0">
+      <div
+        className="absolute inset-0"
+        style={{ transform: `translateY(${scrollY * 0.5}px)` }}
+      >
         <img
           src={heroImage}
           alt="Developer workspace"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-black opacity-85"></div>
+        <div className="absolute inset-0 bg-black opacity-70"></div>
       </div>
 
       {/* Content */}
@@ -30,15 +45,21 @@ const Hero = () => {
             <span className="text-sm">{t("hero.badge")}</span>
           </div>
 
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight tracking-tight">
+          <h1 className="text-3xl md:text-7xl font-bold mb-6 leading-tight tracking-tight text-gradient-animated bg-clip-text pb-2">
             {t("hero.title")}
           </h1>
 
-          <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed">
+          <p
+            className="text-lg md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto leading-relaxed animate-fade-in-up"
+            style={{ animationDelay: '0.2s', animationFillMode: 'both' }}
+          >
             {t("hero.subtitle")}
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+          <div
+            className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up"
+            style={{ animationDelay: '0.4s', animationFillMode: 'both' }}
+          >
             <Button
               size="lg"
               className="portfolio-gradient hover:shadow-glow transition-all duration-300 text-lg px-8 py-6"
@@ -56,7 +77,7 @@ const Hero = () => {
             </Button>
           </div>
 
-          <div className="flex items-center justify-center gap-6 pt-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="flex items-center justify-center gap-6 pt-4 animate-fade-in" style={{ animationDelay: '0.8s', animationFillMode: 'both' }}>
             <a href="https://www.instagram.com/sajor.dev" target="_blank" rel="noopener noreferrer" className="text-white/60 hover:text-primary transition-all duration-300 hover:scale-125">
               <Instagram size={24} />
             </a>
@@ -70,7 +91,10 @@ const Hero = () => {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute slide-in-from-bottom-1/2 mt-16 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <div
+          className="absolute slide-in-from-bottom-1/2 mt-16 left-1/2 transform -translate-x-1/2 animate-bounce"
+          style={{ animationDelay: '1s' }}
+        >
           <button
             onClick={() => scrollToSection('about')}
             className="text-muted-foreground hover:text-primary transition-colors duration-300"

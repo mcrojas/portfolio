@@ -3,6 +3,51 @@ import { ArrowDown, Code, Rocket, Users, Zap } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTranslation } from "react-i18next";
 import developerPhoto from '@/assets/mary-rojas-frontend-web-developer.png';
+import { useEffect, useState, useRef } from "react";
+
+const AnimatedCounter = ({ end, duration = 2000, suffix = "" }: { end: number, duration?: number, suffix?: string }) => {
+  const [count, setCount] = useState(0);
+  const countRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setIsVisible(true);
+          observer.disconnect();
+        }
+      },
+      { threshold: 0.1 }
+    );
+
+    if (countRef.current) {
+      observer.observe(countRef.current);
+    }
+
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!isVisible) return;
+
+    let startTime: number | null = null;
+    const animate = (currentTime: number) => {
+      if (!startTime) startTime = currentTime;
+      const progress = Math.min((currentTime - startTime) / duration, 1);
+
+      setCount(Math.floor(progress * end));
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      }
+    };
+
+    requestAnimationFrame(animate);
+  }, [isVisible, end, duration]);
+
+  return <span ref={countRef}>{count}{suffix}</span>;
+};
 
 const About = () => {
   const { t } = useTranslation();
@@ -57,35 +102,43 @@ const About = () => {
 
             {/* Stats */}
             <div className="grid grid-cols-2 gap-6 animate-slide-in-right">
-              <div className="col-span-2 relative overflow-hidden w-32 h-32 mx-auto mt-6 rounded-full">
+              <div className="col-span-2 relative overflow-hidden w-48 h-48 mx-auto mt-6 rounded-full group">
                 <img
                   src={developerPhoto}
                   alt="Sajor - Frontend Developer"
-                  className="w-full h-auto object-cover"
+                  className="w-full h-full object-cover transition-all duration-500 transform group-hover:scale-110 group-hover:brightness-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/10 to-transparent"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               </div>
               <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
-                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">10+</div>
+                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">
+                    <AnimatedCounter end={10} suffix="+" />
+                  </div>
                   <p className="text-muted-foreground">{t("about.stats.experience")}</p>
                 </CardContent>
               </Card>
               <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
-                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">40+</div>
+                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">
+                    <AnimatedCounter end={40} suffix="+" />
+                  </div>
                   <p className="text-muted-foreground">{t("about.stats.projects")}</p>
                 </CardContent>
               </Card>
               <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
-                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">6+</div>
+                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">
+                    <AnimatedCounter end={6} suffix="+" />
+                  </div>
                   <p className="text-muted-foreground">{t("about.stats.remote")}</p>
                 </CardContent>
               </Card>
               <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
                 <CardContent className="pt-6">
-                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">100%</div>
+                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">
+                    <AnimatedCounter end={100} suffix="%" />
+                  </div>
                   <p className="text-muted-foreground">{t("about.stats.dedication")}</p>
                 </CardContent>
               </Card>

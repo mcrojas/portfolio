@@ -167,8 +167,21 @@ All colors MUST be HSL.
   .skill-bar {
     @apply relative overflow-hidden rounded-full bg-secondary;
   }
+}
 
-  .skill-progress {
-    @apply h-full portfolio-gradient rounded-full transition-all duration-1000 ease-out;
-  }
+.text-gradient-animated {
+  background: linear-gradient(-45deg,
+      #ee52ee,
+      #e73c7e,
+      #ffffff,
+      #d523bd);
+  background-size: 300%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: text-gradient 5s ease infinite;
+}
+
+.skill-progress {
+  @apply h-full portfolio-gradient rounded-full transition-all duration-1000 ease-out;
 }

@@ -22,7 +22,7 @@ const Testimonials = () => {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            {t("testimonials.title")}
+              {t("testimonials.title")}
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               {t("testimonials.subtitle")}
@@ -58,8 +58,8 @@ const Testimonials = () => {
                 );
               })}
             </CarouselContent>
-            <CarouselPrevious />
-            <CarouselNext />
+            <CarouselPrevious className='hidden md:flex' />
+            <CarouselNext className='hidden md:flex' />
           </Carousel>
         </div>
       </div>

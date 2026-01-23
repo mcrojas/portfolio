@@ -2,6 +2,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Skeleton } from "@/components/ui/skeleton";
 import { ExternalLink, Github, Eye } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import uxdesignImg from "@/assets/portfolio/uxdesign.jpeg";
@@ -16,7 +17,8 @@ import davisImg from "@/assets/portfolio/davis-events.png";
 import huertaAizuImg from "@/assets/portfolio/huerta-aizu-web.png";
 import businessImg from "@/assets/portfolio/business.png";
 import tamImg from "@/assets/portfolio/tam.png";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
+import { useIntersectionObserver } from "@/hooks/use-intersection-observer";
 
 interface Project {
   id: number;
@@ -33,6 +35,11 @@ interface Project {
 const Portfolio = () => {
   const { t } = useTranslation();
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [isFiltering, setIsFiltering] = useState(false);
+  const [filteredProjects, setFilteredProjects] = useState<Project[]>([]);
+  const sectionRef = useRef<HTMLElement>(null);
+  const entry = useIntersectionObserver(sectionRef, { threshold: 0.1, freezeOnceVisible: true });
+  const isVisible = !!entry?.isIntersecting;
 
   // Datos de ejemplo - reemplazar con datos reales
   const projects: Project[] = [
@@ -177,147 +184,181 @@ const Portfolio = () => {
     { id: "ReactJS", label: t("portfolio.categories.reactjs") }
   ];
 
-  const filteredProjects = selectedCategory === "All"
-    ? projects
-    : projects.filter(project => project.category === selectedCategory);
+  useEffect(() => {
+    setIsFiltering(true);
+    const timeout = setTimeout(() => {
+      const filtered = selectedCategory === "All"
+        ? projects
+        : projects.filter(project => project.category === selectedCategory);
+      setFilteredProjects(filtered);
+      setIsFiltering(false);
+    }, 500); // Small delay to show skeleton and simulate processing
+
+    return () => clearTimeout(timeout);
+  }, [selectedCategory, t]);
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category);
+  };
 
   return (
-    <section id="portfolio" className="py-20">
+    <section id="portfolio" ref={sectionRef} className="py-20">
       <div className="container mx-auto px-4">
-        <div className="max-w-6xl mx-auto">
-          {/* Header */}
-          <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              {t("portfolio.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("portfolio.title").split(' ')[1]}</span>
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              {t("portfolio.subtitle")}
-            </p>
-          </div>
+        {isVisible && (
+          <div className="max-w-6xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-16 animate-fade-in">
+              <h2 className="text-4xl md:text-5xl font-bold mb-4">
+                {t("portfolio.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("portfolio.title").split(' ')[1]}</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+                {t("portfolio.subtitle")}
+              </p>
+            </div>
 
-          {/* Category Filter */}
-          <div className="flex justify-center mb-12">
-            <div className="flex flex-wrap gap-4 p-2 bg-card rounded-lg shadow-soft">
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? "default" : "ghost"}
-                  onClick={() => setSelectedCategory(category.id)}
-                  className={selectedCategory === category.id ?
-                    "portfolio-gradient hover:shadow-glow transition-all duration-300" :
-                    "hover:bg-secondary transition-colors duration-300"
-                  }
-                >
-                  {category.label}
-                </Button>
-              ))}
+            {/* Category Filter */}
+            <div className="flex justify-center mb-12">
+              <div className="flex flex-wrap gap-4 p-2 bg-card rounded-lg shadow-soft">
+                {categories.map((category) => (
+                  <Button
+                    key={category.id}
+                    variant={selectedCategory === category.id ? "default" : "ghost"}
+                    onClick={() => handleCategoryChange(category.id)}
+                    className={selectedCategory === category.id ?
+                      "portfolio-gradient hover:shadow-glow transition-all duration-300" :
+                      "hover:bg-secondary transition-colors duration-300"
+                    }
+                  >
+                    {category.label}
+                  </Button>
+                ))}
+              </div>
+            </div>
+
+            {/* Projects Grid */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+              {isFiltering ? (
+                // Skeleton Loading State
+                Array.from({ length: 4 }).map((_, index) => (
+                  <Card key={index} className="overflow-hidden shadow-soft">
+                    <Skeleton className="w-full h-64" />
+                    <CardContent className="p-6 space-y-4">
+                      <Skeleton className="h-6 w-3/4" />
+                      <Skeleton className="h-4 w-full" />
+                      <div className="flex gap-2">
+                        <Skeleton className="h-5 w-16" />
+                        <Skeleton className="h-5 w-16" />
+                        <Skeleton className="h-5 w-16" />
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              ) : (
+                filteredProjects.map((project, index) => (
+                  <Card
+                    key={project.id}
+                    className="group overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-500 hover:scale-105 animate-fade-in-up"
+                    style={{ animationDelay: `${index * 100}ms` }}
+                  >
+                    <div className="relative overflow-hidden">
+                      <img
+                        src={project.image}
+                        alt={project.title}
+                        loading="lazy"
+                        className="w-full h-64 object-cover transition-transform duration-500 group-hover:scale-110"
+                      />
+                      <div className="absolute inset-0 portfolio-gradient-soft opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                        <div className="flex gap-4">
+                          <Dialog>
+                            <DialogTrigger asChild>
+                              <Button size="sm" variant="secondary" className="shadow-lg">
+                                <Eye className="w-4 h-4 mr-2" />
+                                {t("portfolio.viewDetails")}
+                              </Button>
+                            </DialogTrigger>
+                            <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
+                              <DialogHeader>
+                                <DialogTitle className="text-2xl font-bold">{project.title}</DialogTitle>
+                              </DialogHeader>
+                              <div className="space-y-6">
+                                <img
+                                  src={project.image}
+                                  alt={project.title}
+                                  className="w-full h-[36rem] object-cover rounded-lg"
+                                />
+                                <p className="text-muted-foreground leading-relaxed">
+                                  {project.fullDescription}
+                                </p>
+                                <div className="space-y-4">
+                                  <h4 className="font-semibold">{t("portfolio.technologies")}</h4>
+                                  <div className="flex flex-wrap gap-2">
+                                    {project.technologies.map((tech) => (
+                                      <Badge key={tech} variant="secondary">{tech}</Badge>
+                                    ))}
+                                  </div>
+                                </div>
+                                <div className="flex gap-4 pt-4">
+                                  <Button asChild className="portfolio-gradient">
+                                    <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                                      <ExternalLink className="w-4 h-4 mr-2" />
+                                      {t("portfolio.viewSite")}
+                                    </a>
+                                  </Button>
+                                  {project.githubUrl !== "#" && (
+                                    <Button variant="outline" asChild>
+                                      <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                                        <Github className="w-4 h-4 mr-2" />
+                                        {t("portfolio.code")}
+                                      </a>
+                                    </Button>
+                                  )}
+                                </div>
+                              </div>
+                            </DialogContent>
+                          </Dialog>
+                        </div>
+                      </div>
+                    </div>
+                    <CardContent className="p-6">
+                      <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
+                        {project.title}
+                      </h3>
+                      <p className="text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
+                      <div className="flex flex-wrap gap-2 mb-4">
+                        {project.technologies.slice(0, 3).map((tech) => (
+                          <Badge key={tech} variant="default" className="text-xs">
+                            {tech}
+                          </Badge>
+                        ))}
+                        {project.technologies.length > 3 && (
+                          <Badge variant="secondary" className="text-xs">
+                            +{project.technologies.length - 3}
+                          </Badge>
+                        )}
+                      </div>
+                      <div className="flex gap-2">
+                        <Button size="sm" variant="outline" asChild className="flex-1">
+                          <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
+                            <ExternalLink className="w-4 h-4 mr-2" />
+                            {t("portfolio.viewSite")}
+                          </a>
+                        </Button>
+                        {project.githubUrl !== "#" && (
+                          <Button size="sm" variant="outline" asChild className="flex-1">
+                            <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
+                              <Github className="w-4 h-4 mr-2" />
+                              {t("portfolio.code")}
+                            </a>
+                          </Button>
+                        )}
+                      </div>
+                    </CardContent>
+                  </Card>
+                ))
+              )}
             </div>
           </div>
-
-          {/* Projects Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {filteredProjects.map((project, index) => (
-              <Card
-                key={project.id}
-                className="group overflow-hidden shadow-soft hover:shadow-elegant transition-all duration-500 hover:scale-105 animate-fade-in-up"
-                style={{ animationDelay: `${index * 200}ms` }}
-              >
-                <div className="relative overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-96 object-cover transition-transform duration-500 group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 portfolio-gradient-soft opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <div className="flex gap-4">
-                      <Dialog>
-                        <DialogTrigger asChild>
-                          <Button size="sm" variant="secondary" className="shadow-lg">
-                            <Eye className="w-4 h-4 mr-2" />
-                            {t("portfolio.viewDetails")}
-                          </Button>
-                        </DialogTrigger>
-                        <DialogContent className="max-w-4xl max-h-[80vh] overflow-y-auto">
-                          <DialogHeader>
-                            <DialogTitle className="text-2xl font-bold">{project.title}</DialogTitle>
-                          </DialogHeader>
-                          <div className="space-y-6">
-                            <img
-                              src={project.image}
-                              alt={project.title}
-                              className="w-full h-[36rem] object-cover rounded-lg"
-                            />
-                            <p className="text-muted-foreground leading-relaxed">
-                              {project.fullDescription}
-                            </p>
-                            <div className="space-y-4">
-                              <h4 className="font-semibold">{t("portfolio.technologies")}</h4>
-                              <div className="flex flex-wrap gap-2">
-                                {project.technologies.map((tech) => (
-                                  <Badge key={tech} variant="secondary">{tech}</Badge>
-                                ))}
-                              </div>
-                            </div>
-                            <div className="flex gap-4 pt-4">
-                              <Button asChild className="portfolio-gradient">
-                                <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                                  <ExternalLink className="w-4 h-4 mr-2" />
-                                  {t("portfolio.viewSite")}
-                                </a>
-                              </Button>
-                              {project.githubUrl !== "#" && (
-                                <Button variant="outline" asChild>
-                                  <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                                    <Github className="w-4 h-4 mr-2" />
-                                    {t("portfolio.code")}
-                                  </a>
-                                </Button>
-                              )}
-                            </div>
-                          </div>
-                        </DialogContent>
-                      </Dialog>
-                    </div>
-                  </div>
-                </div>
-                <CardContent className="p-6">
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors duration-300">
-                    {project.title}
-                  </h3>
-                  <p className="text-muted-foreground mb-4 line-clamp-2">{project.description}</p>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.slice(0, 3).map((tech) => (
-                      <Badge key={tech} variant="default" className="text-xs">
-                        {tech}
-                      </Badge>
-                    ))}
-                    {project.technologies.length > 3 && (
-                      <Badge variant="secondary" className="text-xs">
-                        +{project.technologies.length - 3}
-                      </Badge>
-                    )}
-                  </div>
-                  <div className="flex gap-2">
-                    <Button size="sm" variant="outline" asChild className="flex-1">
-                      <a href={project.liveUrl} target="_blank" rel="noopener noreferrer">
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        {t("portfolio.viewSite")}
-                      </a>
-                    </Button>
-                    {project.githubUrl !== "#" && (
-                      <Button size="sm" variant="outline" asChild className="flex-1">
-                        <a href={project.githubUrl} target="_blank" rel="noopener noreferrer">
-                          <Github className="w-4 h-4 mr-2" />
-                          {t("portfolio.code")}
-                        </a>
-                      </Button>
-                    )}
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
+        )}
       </div>
     </section>
   );
