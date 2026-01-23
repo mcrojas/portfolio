@@ -11,11 +11,11 @@
         "language": "Language"
     },
     "hero": {
-        "badge": "Full Stack Developer",
+        "badge": "Frontend Architect",
         "title": "Transforming Ideas into High-Performance Digital Experiences",
         "subtitle": "Building modern, scalable, and SEO-optimized web applications that accelerate your business growth.",
         "buttons": {
-            "portfolio": "Portfolio",
+            "portfolio": "View My Work",
             "contact": "Contact me"
         }
     },
@@ -85,7 +85,7 @@
             },
             "11": {
                 "title": "Donal's Kitchen",
-                "description": "Delicious, doable recipes and meal plans Cook smarter with Donal's Kitchen.",
+                "description": "Delicious, doable recipes and meal plans. Cook smarter with Donal's Kitchen.",
                 "fullDescription": "Implemented responsive and visually appealing user interfaces using TailwindCSS and modern web technologies (WordPress, Stripe)"
             },
             "12": {
@@ -107,7 +107,7 @@
         "items": {
             "frontend": {
                 "title": "Frontend Web Development",
-                "description": "Creation of modern and responsive interfaces using the latest technologies like React, Next.js, and TypeScript.",
+                "description": "Building modern, responsive interfaces using the latest technologies like React, Next.js, and TypeScript.",
                 "features": [
                     "Development with React.js/Next.js",
                     "Clean and maintainable code",
@@ -168,7 +168,7 @@
         }
     },
     "contact": {
-        "title": "Let's discuss your Project",
+        "title": "Let's Discuss Your Project",
         "subtitle": "Do you have a great idea? I would love to hear it and help you bring it to life",
         "form": {
             "title": "Send me a message",

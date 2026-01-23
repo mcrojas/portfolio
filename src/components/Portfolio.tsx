@@ -3,7 +3,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
-import { ExternalLink, Github, Eye } from "lucide-react";
+import { ExternalLink, Github, Eye, LayoutGrid, List } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import uxdesignImg from "@/assets/portfolio/uxdesign.jpeg";
 import irecruitImg from "@/assets/portfolio/recruitireland.png";
@@ -40,6 +40,7 @@ const Portfolio = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const entry = useIntersectionObserver(sectionRef, { threshold: 0.1, freezeOnceVisible: true });
   const isVisible = !!entry?.isIntersecting;
+  const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
   // Datos de ejemplo - reemplazar con datos reales
   const projects: Project[] = [
@@ -235,8 +236,30 @@ const Portfolio = () => {
               </div>
             </div>
 
-            {/* Projects Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {/* View Mode Toggle */}
+            <div className="flex justify-end mb-6">
+              <div className="inline-flex gap-2 p-1 bg-secondary/50 rounded-lg">
+                <Button
+                  variant={viewMode === 'grid' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('grid')}
+                  className={viewMode === 'grid' ? 'portfolio-gradient' : ''}
+                >
+                  <LayoutGrid className="w-4 h-4" />
+                </Button>
+                <Button
+                  variant={viewMode === 'list' ? 'default' : 'ghost'}
+                  size="sm"
+                  onClick={() => setViewMode('list')}
+                  className={viewMode === 'list' ? 'portfolio-gradient' : ''}
+                >
+                  <List className="w-4 h-4" />
+                </Button>
+              </div>
+            </div>
+
+            {/* Projects Grid/List */}
+            <div className={viewMode === 'grid' ? 'grid md:grid-cols-2 lg:grid-cols-2 gap-8' : 'flex flex-col gap-6'}>
               {isFiltering ? (
                 // Skeleton Loading State
                 Array.from({ length: 4 }).map((_, index) => (

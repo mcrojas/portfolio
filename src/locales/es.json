@@ -11,11 +11,11 @@
         "language": "Idioma"
     },
     "hero": {
-        "badge": "Desarrollador Full Stack",
+        "badge": "Arquitecto Frontend",
         "title": "Transformando ideas en experiencias digitales de alto rendimiento",
         "subtitle": "Creación de aplicaciones web modernas, escalables y optimizadas para SEO que aceleran el crecimiento de su negocio.",
         "buttons": {
-            "portfolio": "Portafolio",
+            "portfolio": "Ver Mi Trabajo",
             "contact": "Contáctame"
         }
     },
@@ -107,7 +107,7 @@
         "items": {
             "frontend": {
                 "title": "Desarrollo Web Frontend",
-                "description": "Creación de interfaces modernas y responsivas utilizando las últimas tecnologías como React, Next.js y TypeScript.",
+                "description": "Desarrollo de interfaces modernas y responsivas utilizando las últimas tecnologías como React, Next.js y TypeScript.",
                 "features": [
                     "Desarrollo con React.js/Next.js",
                     "Código limpio y mantenible",
@@ -203,7 +203,7 @@
     "about": {
         "title": "Sobre mí",
         "subtitle": "Permítanme presentarme",
-        "description1": "Soy Mary, frontend developer con más de 10 años de experiencia especializada en aplicaciones web de alto rendimiento donde la lógica se une a la estética. Cierro la brecha entre sistemas de diseño complejos y arquitectura frontend escalable, asegurando que cada píxel tenga un propósito y cada componente esté construido para durar.",
+        "description1": "Soy Mary, ingeniero frontend con más de 10 años de experiencia especializada en aplicaciones web de alto rendimiento donde la lógica se une a la estética. Cierro la brecha entre sistemas de diseño complejos y arquitectura frontend escalable, asegurando que cada píxel tenga un propósito y cada componente esté construido para durar.",
         "description2": "Especializado en React y Next.js, creo experiencias de usuario fluidas, ultrarrápidas y con un diseño intuitivo. No solo escribo código; me apropio de la interfaz y colaboro en equipos para entregar productos que generen un valor comercial real.",
         "stats": {
             "experience": "Años de experiencia",

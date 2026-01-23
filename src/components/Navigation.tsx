@@ -15,6 +15,7 @@ const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [activeSection, setActiveSection] = useState("home");
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [scrollProgress, setScrollProgress] = useState(0);
 
   const navItems = [
     { id: "home", label: t("nav.home") },
@@ -33,6 +34,13 @@ const Navigation = () => {
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
+
+      // Calculate scroll progress
+      const windowHeight = window.innerHeight;
+      const documentHeight = document.documentElement.scrollHeight;
+      const scrollTop = window.scrollY;
+      const scrollPercentage = (scrollTop / (documentHeight - windowHeight)) * 100;
+      setScrollProgress(Math.min(scrollPercentage, 100));
 
       // Update active section based on scroll position
       const sections = navItems.map(item => item.id);
@@ -71,6 +79,8 @@ const Navigation = () => {
       ? "bg-background/95 backdrop-blur-lg shadow-soft"
       : "bg-transparent"
       }`}>
+      {/* Scroll Progress Bar */}
+      <div className="absolute top-0 left-0 h-1 portfolio-gradient transition-all duration-300" style={{ width: `${scrollProgress}%` }}></div>
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}

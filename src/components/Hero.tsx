@@ -3,6 +3,7 @@ import { ChevronsDown, Code, Instagram, Linkedin, Mail } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import heroImage from "@/assets/hero-bg.jpg";
 import { useEffect, useState } from "react";
+import { TypeAnimation } from 'react-type-animation';
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -22,6 +23,15 @@ const Hero = () => {
     element?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Floating particles
+  const particles = Array.from({ length: 15 }, (_, i) => ({
+    id: i,
+    size: Math.random() * 4 + 2,
+    left: Math.random() * 100,
+    animationDuration: Math.random() * 10 + 15,
+    animationDelay: Math.random() * 5
+  }));
+
   return (
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background Image with Overlay */}
@@ -37,6 +47,22 @@ const Hero = () => {
         <div className="absolute inset-0 bg-black opacity-70"></div>
       </div>
 
+      {/* Floating Particles */}
+      {particles.map((particle) => (
+        <div
+          key={particle.id}
+          className="absolute rounded-full bg-white/10 backdrop-blur-sm animate-float"
+          style={{
+            width: `${particle.size}px`,
+            height: `${particle.size}px`,
+            left: `${particle.left}%`,
+            top: `${Math.random() * 100}%`,
+            animationDuration: `${particle.animationDuration}s`,
+            animationDelay: `${particle.animationDelay}s`
+          }}
+        ></div>
+      ))}
+
       {/* Content */}
       <div className="relative z-10 text-center text-white px-4 max-w-4xl mx-auto">
         <div className="animate-fade-in-up">
@@ -45,8 +71,19 @@ const Hero = () => {
             <span className="text-sm">{t("hero.badge")}</span>
           </div>
 
-          <h1 className="text-3xl md:text-7xl font-bold mb-6 leading-tight tracking-tight text-gradient-animated bg-clip-text pb-2">
-            {t("hero.title")}
+          <h1 className="text-3xl md:text-7xl font-bold mb-6 leading-tight tracking-tight pb-2 min-h-[120px] md:min-h-[200px]">
+            <TypeAnimation
+              sequence={[
+                t("hero.title"),
+                3000,
+                '',
+                500
+              ]}
+              wrapper="span"
+              speed={50}
+              className="text-gradient-animated bg-clip-text"
+              repeat={Infinity}
+            />
           </h1>
 
           <p

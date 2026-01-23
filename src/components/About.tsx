@@ -160,7 +160,29 @@ const About = () => {
             ))}
           </div>
 
-          <div className="flex justify-center items-center mt-12 animate-fade-in-up">
+          {/* Top Technologies */}
+          <div className="flex justify-center items-center mt-12 mb-6 animate-fade-in-up">
+            <div className="flex flex-wrap gap-3 justify-center">
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all">
+                <span className="text-2xl">⚛️</span>
+                <span className="font-medium">React</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all">
+                <span className="text-2xl">▲</span>
+                <span className="font-medium">Next.js</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all">
+                <span className="text-2xl">🎨</span>
+                <span className="font-medium">TailwindCSS</span>
+              </div>
+              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all">
+                <span className="text-2xl">TS</span>
+                <span className="font-medium">TypeScript</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex justify-center items-center animate-fade-in-up">
             <Button size="lg" className="portfolio-gradient hover:shadow-glow transition-all duration-300">
               <a
                 href="https://drive.google.com/file/d/1EdVRZw_mKpkN2NLYwDWFDDvbXVt4T1QB/view"
