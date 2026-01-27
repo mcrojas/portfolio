@@ -107,7 +107,7 @@
         "items": {
             "frontend": {
                 "title": "Desarrollo Web Frontend",
-                "description": "Desarrollo de interfaces modernas y responsivas utilizando las últimas tecnologías como React, Next.js y TypeScript.",
+                "description": "Desarrollo de interfaces modernas y responsivas utilizando las últimas tecnologías como React y Next.js.",
                 "features": [
                     "Desarrollo con React.js/Next.js",
                     "Código limpio y mantenible",
@@ -241,6 +241,18 @@
             "certifications": "Certificaciones y Cursos"
         },
         "items": [
+            {
+                "title": "Senior Frontend & UX/UI (Freelance)",
+                "company": "",
+                "period": "Septiembre 2026 - Presente",
+                "location": "Latam / Europa",
+                "type": "Remoto",
+                "achievements": [
+                    "Arquitecté y optimicé más de 5 plataformas de nivel empresarial utilizando React y Next.js, logrando cargas de página un 12% más rápidas y un aumento del 8% en la retención de usuarios.",
+                    "Desarrollé temas de WordPress personalizados e integraciones complejas de Laravel, reduciendo la sobrecarga de JavaScript y manteniendo una rica interactividad en todos los dispositivos.",
+                    "Estandaricé el desarrollo de la interfaz de usuario mediante la implementación de TailwindCSS, lo que redujo los problemas de compatibilidad entre navegadores en un 18%."
+                ]
+            },
             {
                 "title": "Ingeniero de Software Frontend",
                 "company": "Square1",

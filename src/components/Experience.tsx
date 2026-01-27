@@ -14,7 +14,8 @@ const Experience = () => {
   // Wait, I already have them in the component. I'll keep them here and just translate the text part.
 
   const experienceTechs = [
-    ["ReactJS", "TypeScript", "Next.js", "Laravel", "WordPress", "Tailwind CSS"],
+    ["ReactJS", "Next.js", "Laravel", "WordPress", "Tailwind CSS"],
+    ["ReactJS", "Next.js", "Laravel", "WordPress", "Tailwind CSS"],
     ["ReactJS", "JavaScript", "CSS3", "WordPress", "XCode", "Swift"],
     ["PHP", "HTML5", "CSS3", "SASS", "JavaScript", "Bootstrap", "WordPress", "Joomla"],
     ["PHP", "HTML", "CSS", "JavaScript", "Bootstrap", "Joomla"]

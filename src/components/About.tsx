@@ -175,10 +175,6 @@ const About = () => {
                 <span className="text-2xl">🎨</span>
                 <span className="font-medium">TailwindCSS</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all">
-                <span className="text-2xl">TS</span>
-                <span className="font-medium">TypeScript</span>
-              </div>
             </div>
           </div>
 

@@ -10,19 +10,18 @@ const Skills = () => {
 
   const technicalSkills = [
     { name: "React.js", level: 70 },
-    { name: "TypeScript", level: 65 },
     { name: "Next.js", level: 70 },
     { name: "JavaScript", level: 75 },
     { name: "HTML5/CSS3", level: 95 },
     { name: "Tailwind CSS", level: 90 },
-    { name: "WordPress", level: 80 },
+    { name: "WordPress", level: 85 },
     { name: "Laravel", level: 75 },
-    { name: "AWS CI/CD", level: 75 }
+    { name: "AWS CI/CD", level: 70 }
   ];
 
   const tools = [
     "Git & GitHub", "VS Code", "Figma", "Adobe", "Webpack",
-    "yarn/NPM", "Vite", "Composer", "Headless CMS",
+    "yarn/NPM", "Vite", "Composer", "Headless CMS", "Cursor", "Antigravity",
     "Docker", "Homestead", "AWS", "Material UI", "Netlify", "Firebase", "Supabase"
   ];
 

@@ -107,7 +107,7 @@
         "items": {
             "frontend": {
                 "title": "Frontend Web Development",
-                "description": "Building modern, responsive interfaces using the latest technologies like React, Next.js, and TypeScript.",
+                "description": "Building modern, responsive interfaces using the latest technologies like React and Next.js.",
                 "features": [
                     "Development with React.js/Next.js",
                     "Clean and maintainable code",
@@ -242,13 +242,25 @@
         },
         "items": [
             {
+                "title": "Senior Frontend & UX/UI (Freelance)",
+                "company": "",
+                "period": "September 2026 - Present",
+                "location": "LATAM / Europe",
+                "type": "Remote",
+                "achievements": [
+                    "Architected and optimized 5+ enterprise-level platforms using React and Next.js, achieving 12% faster page loads and an 8% increase in user retention.",
+                    "Engineered custom WordPress themes and complex Laravel integrations, reducing JavaScript overhead while maintaining rich interactivity across devices.",
+                    "Standardized UI development by implementing TailwindCSS, which reduced cross-browser compatibility issues by 18%."
+                ]
+            },
+            {
                 "title": "Frontend Software Engineer",
                 "company": "Square1",
-                "period": "August 2019 - Present",
+                "period": "August 2019 - September 2026",
                 "location": "Dublin, Ireland / Spain",
                 "type": "Remote",
                 "achievements": [
-                    "Architected and optimized 10+ enterprise-level platforms using React and Next.js, achieving 12% faster page loads and an 8% increase in user retention.",
+                    "Architected and optimized 15+ enterprise-level platforms using React and Next.js, achieving 12% faster page loads and an 8% increase in user retention.",
                     "Engineered custom WordPress themes and complex Laravel integrations, reducing JavaScript overhead while maintaining rich interactivity across devices.",
                     "Standardized UI development by implementing TailwindCSS, which reduced cross-browser compatibility issues by 18%."
                 ]
