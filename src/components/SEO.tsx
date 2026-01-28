@@ -16,7 +16,7 @@ const SEO = ({ title, description, keywords, image, url }: SEOProps) => {
     const siteDescription = description || t("seo.description", "Frontend Developer utilizing ReactJS and modern web technologies.");
     const siteKeywords = keywords || t("seo.keywords", "frontend, developer, react, web");
     const siteUrl = url || "https://mcrojas.github.io/portfolio/";
-    const siteImage = image || "/sajor-dev.png"; // Maintain existing image
+    const siteImage = image || "/portfolio/sajor-dev.png"; // Maintain existing image
 
     return (
         <Helmet>

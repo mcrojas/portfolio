@@ -41,8 +41,9 @@ const Hero = () => {
       >
         <img
           src={heroImage}
-          alt="Developer workspace"
+          alt="Developer workspace with modern setup"
           className="w-full h-full object-cover"
+          fetchPriority="high"
         />
         <div className="absolute inset-0 bg-black opacity-70"></div>
       </div>
@@ -71,19 +72,8 @@ const Hero = () => {
             <span className="text-sm">{t("hero.badge")}</span>
           </div>
 
-          <h1 className="text-3xl md:text-7xl font-bold mb-6 leading-tight tracking-tight pb-2 min-h-[120px] md:min-h-[200px]">
-            <TypeAnimation
-              sequence={[
-                t("hero.title"),
-                3000,
-                '',
-                500
-              ]}
-              wrapper="span"
-              speed={50}
-              className="text-gradient-animated bg-clip-text"
-              repeat={Infinity}
-            />
+          <h1 className="text-3xl md:text-7xl font-bold mb-6 text-gradient-animated bg-clip-text leading-tight tracking-tight pb-2 min-h-[120px] md:min-h-[200px]">
+            {t("hero.title")}
           </h1>
 
           <p
