@@ -210,7 +210,7 @@ const Portfolio = () => {
             {/* Header */}
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                {t("portfolio.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("portfolio.title").split(' ')[1]}</span>
+                {t("portfolio.title").split(' ')[0]} <span className="text-pink-600">{t("portfolio.title").split(' ')[1]}</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 {t("portfolio.subtitle")}
@@ -237,7 +237,7 @@ const Portfolio = () => {
             </div>
 
             {/* View Mode Toggle */}
-            <div className="flex justify-end mb-6">
+            <div className="hidden md:flex justify-end mb-6">
               <div className="inline-flex gap-2 p-1 bg-secondary/50 rounded-lg">
                 <Button
                   variant={viewMode === 'grid' ? 'default' : 'ghost'}

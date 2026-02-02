@@ -1,5 +1,4 @@
-import { Card, CardContent } from "@/components/ui/card";
-import { ArrowDown, Code, Rocket, Users, Zap } from "lucide-react";
+import { ArrowDown } from "lucide-react";
 import { Button } from "./ui/button";
 import { useTranslation } from "react-i18next";
 import developerPhoto from '@/assets/mary-rojas-frontend-web-developer.png';
@@ -51,145 +50,123 @@ const AnimatedCounter = ({ end, duration = 2000, suffix = "" }: { end: number, d
 
 const About = () => {
   const { t } = useTranslation();
-  const highlights = [
-    {
-      icon: <Code className="w-8 h-8" />,
-      title: t("about.highlights.cleanCode.title"),
-      description: t("about.highlights.cleanCode.description")
-    },
-    {
-      icon: <Rocket className="w-8 h-8" />,
-      title: t("about.highlights.innovation.title"),
-      description: t("about.highlights.innovation.description")
-    },
-    {
-      icon: <Users className="w-8 h-8" />,
-      title: t("about.highlights.collaboration.title"),
-      description: t("about.highlights.collaboration.description")
-    },
-    {
-      icon: <Zap className="w-8 h-8" />,
-      title: t("about.highlights.performance.title"),
-      description: t("about.highlights.performance.description")
-    }
-  ];
 
   return (
-    <section id="about" className="py-20 bg-secondary/50">
+    <section id="about" className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              {t("about.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("about.title").split(' ')[1]}</span>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 text-gray-800">
+              {t("about.title").split(' ')[0]} <span className="text-pink-600">{t("about.title").split(' ')[1]}</span>
             </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               {t("about.subtitle")}
             </p>
           </div>
 
           {/* Main Content */}
-          <div className="grid lg:grid-cols-2 gap-12 items-center mb-16">
-            {/* Text Content */}
-            <div className="space-y-6 animate-fade-in-up">
-              <p className="text-md text-muted-foreground leading-relaxed">
-                {t("about.description1")}
-              </p>
-              <p className="text-md text-muted-foreground leading-relaxed">
-                {t("about.description2")}
-              </p>
-            </div>
-
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-6 animate-slide-in-right">
-              <div className="col-span-2 relative overflow-hidden w-48 h-48 mx-auto mt-6 rounded-full group">
-                <img
-                  src={developerPhoto}
-                  alt="Sajor - Frontend Developer"
-                  className="w-full h-full object-cover transition-all duration-500 transform group-hover:scale-110 group-hover:brightness-110"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="grid lg:grid-cols-2 gap-16 items-start mb-12">
+            {/* Text Content and Stats */}
+            <div className="space-y-8 animate-fade-in-up">
+              <div className="space-y-4">
+                <p className="text-base text-gray-700 leading-relaxed">
+                  {t("about.description1")}
+                </p>
+                <p className="text-bahttps://drive.google.com/file/d/1V5Z0YuPvat-22tAMX3G6-SPwS5JSsSB_/view?usp=sharingse text-gray-700 leading-relaxed">
+                  {t("about.description2")}
+                </p>
               </div>
-              <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
-                <CardContent className="pt-6">
-                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">
+
+              {/* Stats Grid 2x2 */}
+              <div className="grid grid-cols-2 gap-8 pt-4">
+                <div className="rounded-lg border bg-card text-card-foreground shadow-sm text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105 p-6">
+                  <div className="text-5xl font-bold text-pink-600 mb-2">
                     <AnimatedCounter end={10} suffix="+" />
                   </div>
-                  <p className="text-muted-foreground">{t("about.stats.experience")}</p>
-                </CardContent>
-              </Card>
-              <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
-                <CardContent className="pt-6">
-                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">
+                  <p className="text-xs text-gray-600 uppercase tracking-wider font-medium">
+                    {t("about.stats.experience")}
+                  </p>
+                </div>
+                <div className="rounded-lg border bg-card text-card-foreground shadow-sm text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105 p-6">
+                  <div className="text-5xl font-bold text-pink-600 mb-2">
                     <AnimatedCounter end={40} suffix="+" />
                   </div>
-                  <p className="text-muted-foreground">{t("about.stats.projects")}</p>
-                </CardContent>
-              </Card>
-              <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
-                <CardContent className="pt-6">
-                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">
+                  <p className="text-xs text-gray-600 uppercase tracking-wider font-medium">
+                    {t("about.stats.projects")}
+                  </p>
+                </div>
+                <div className="rounded-lg border bg-card text-card-foreground shadow-sm text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105 p-6">
+                  <div className="text-5xl font-bold text-pink-600 mb-2">
                     <AnimatedCounter end={6} suffix="+" />
                   </div>
-                  <p className="text-muted-foreground">{t("about.stats.remote")}</p>
-                </CardContent>
-              </Card>
-              <Card className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105">
-                <CardContent className="pt-6">
-                  <div className="text-3xl font-bold portfolio-gradient bg-clip-text text-transparent mb-2">
+                  <p className="text-xs text-gray-600 uppercase tracking-wider font-medium">
+                    {t("about.stats.remote")}
+                  </p>
+                </div>
+                <div className="rounded-lg border bg-card text-card-foreground shadow-sm text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105 p-6">
+                  <div className="text-5xl font-bold text-pink-600 mb-2">
                     <AnimatedCounter end={100} suffix="%" />
                   </div>
-                  <p className="text-muted-foreground">{t("about.stats.dedication")}</p>
-                </CardContent>
-              </Card>
+                  <p className="text-xs text-gray-600 uppercase tracking-wider font-medium">
+                    {t("about.stats.dedication")}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
 
-          {/* Highlights */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {highlights.map((highlight, index) => (
-              <Card key={index} className="text-center shadow-soft hover:shadow-elegant transition-all duration-300 hover:scale-105 group">
-                <CardContent className="pt-6">
-                  <div className="text-primary group-hover:text-primary/80 transition-colors duration-300 mb-4 flex justify-center">
-                    {highlight.icon}
+            {/* Photo */}
+            <div className="relative flex justify-center lg:justify-end animate-slide-in-right">
+              <div className="relative">
+                {/* Pink background blob */}
+                <div className="absolute -bottom-8 -right-8 w-80 h-80 bg-gradient-to-br from-pink-200 via-pink-100 to-purple-100 rounded-full -z-10"></div>
+                
+                {/* Photo container */}
+                <div className="relative overflow-hidden w-80 h-80 rounded-full border-8 border-white shadow-2xl group">
+                  <img
+                    src={developerPhoto}
+                    alt="Mary Rojas - Frontend Developer"
+                    className="w-full h-full object-cover transition-all duration-500 transform group-hover:scale-110"
+                  />
+                </div>
+
+                {/* Tech badges */}
+                <div className="absolute -bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 bg-white rounded-full px-4 py-2 shadow-lg">
+                  <div className="flex items-center gap-1">
+                    <span className="text-lg">⚛️</span>
+                    <span className="text-sm font-medium text-gray-700">React</span>
                   </div>
-                  <h3 className="font-semibold mb-2 text-foreground">{highlight.title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{highlight.description}</p>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
+                  <div className="w-px bg-gray-300"></div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-lg">▲</span>
+                    <span className="text-sm font-medium text-gray-700">Next.js</span>
+                  </div>
+                  <div className="w-px bg-gray-300"></div>
+                  <div className="flex items-center gap-1">
+                    <span className="text-lg">🎨</span>
+                    <span className="text-sm font-medium text-gray-700">Tailwind</span>
+                  </div>
+                </div>
 
-          {/* Top Technologies */}
-          <div className="flex justify-center items-center mt-12 mb-6 animate-fade-in-up">
-            <div className="flex flex-wrap gap-3 justify-center">
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all">
-                <span className="text-2xl">⚛️</span>
-                <span className="font-medium">React</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all">
-                <span className="text-2xl">▲</span>
-                <span className="font-medium">Next.js</span>
-              </div>
-              <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 hover:bg-primary/20 transition-all">
-                <span className="text-2xl">🎨</span>
-                <span className="font-medium">TailwindCSS</span>
+                {/* Download CV Button */}
+                <div className="absolute -bottom-20 left-1/2 transform -translate-x-1/2">
+                  <Button 
+                    size="lg" 
+                    className="bg-gradient-to-r from-pink-500 to-pink-600 hover:from-pink-600 hover:to-pink-700 text-white shadow-lg hover:shadow-xl transition-all duration-300"
+                  >
+                    <a
+                      href="https://drive.google.com/file/d/1V5Z0YuPvat-22tAMX3G6-SPwS5JSsSB_/view?usp=sharing"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center gap-2"
+                    >
+                      {t("about.downloadCv")}
+                      <ArrowDown className="w-4 h-4" />
+                    </a>
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-
-          <div className="flex justify-center items-center animate-fade-in-up">
-            <Button size="lg" className="portfolio-gradient hover:shadow-glow transition-all duration-300">
-              <a
-                href="https://drive.google.com/file/d/1EdVRZw_mKpkN2NLYwDWFDDvbXVt4T1QB/view"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center"
-              >
-                {t("about.downloadCv")}
-                <ArrowDown className="w-4 h-4 ml-2" />
-              </a>
-            </Button>
           </div>
         </div>
       </div>

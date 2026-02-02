@@ -56,7 +56,7 @@ const Experience = () => {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              {t("experience.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("experience.title").split(' ')[1]}</span>
+              {t("experience.title").split(' ')[0]} <span className="text-pink-600">{t("experience.title").split(' ')[1]}</span>
             </h2>
             <p className="text-xl text-muted-foreground">
               {t("experience.subtitle")}

@@ -89,7 +89,7 @@ const Services = () => {
             {/* Header */}
             <div className="text-center mb-16 animate-fade-in">
               <h2 className="text-4xl md:text-5xl font-bold mb-4">
-                {t("services.title").split(' ')[0]} <span className="portfolio-gradient bg-clip-text text-transparent">{t("services.title").split(' ')[1]}</span>
+                {t("services.title").split(' ')[0]} <span className="text-pink-600">{t("services.title").split(' ')[1]}</span>
               </h2>
               <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
                 {t("services.subtitle")}

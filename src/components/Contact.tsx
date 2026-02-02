@@ -115,7 +115,7 @@ const Contact = () => {
           {/* Header */}
           <div className="text-center mb-16 animate-fade-in">
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              {t("contact.title").split(' ').slice(0, -1).join(' ')} <span className="portfolio-gradient bg-clip-text text-transparent">{t("contact.title").split(' ').slice(-1)}</span>
+              {t("contact.title").split(' ').slice(0, -1).join(' ')} <span className="text-pink-600">{t("contact.title").split(' ').slice(-1)}</span>
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               {t("contact.subtitle")}
