@@ -22,7 +22,8 @@ const Skills = () => {
   const tools = [
     "Git & GitHub", "VS Code", "Figma", "Adobe", "Webpack",
     "yarn/NPM", "Vite", "Composer", "Headless CMS", "Cursor", "Antigravity",
-    "Docker", "Homestead", "AWS", "Material UI", "Netlify", "Firebase", "Supabase"
+    "Docker", "Homestead", "AWS", "Material UI", "Netlify", "Firebase", "Supabase",
+    "Core Web Vitals", "SEO (Rich Snippets)", "Google Tag Manager"
   ];
 
   const softSkills = t("skills.softItems", { returnObjects: true }) as string[];
